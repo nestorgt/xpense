@@ -21,6 +21,11 @@
 		8E1BB95E24741A8300119A49 /* CategoryListingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E1BB95C24741A8300119A49 /* CategoryListingViewController.xib */; };
 		8E1BB96124741A8E00119A49 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1BB95F24741A8E00119A49 /* SettingsViewController.swift */; };
 		8E1BB96224741A8E00119A49 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E1BB96024741A8E00119A49 /* SettingsViewController.xib */; };
+		8E1BB964247424C800119A49 /* CurrencyLayerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1BB963247424C800119A49 /* CurrencyLayerRouter.swift */; };
+		8E1BB966247424E500119A49 /* CurrencyLayerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1BB965247424E500119A49 /* CurrencyLayerRepository.swift */; };
+		8E1BB968247424F000119A49 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1BB967247424F000119A49 /* APIService.swift */; };
+		8E1BB96B2474259000119A49 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1BB96A2474259000119A49 /* Logger.swift */; };
+		8E1BB96D247426DE00119A49 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 8E1BB96C247426DE00119A49 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +57,11 @@
 		8E1BB95C24741A8300119A49 /* CategoryListingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryListingViewController.xib; sourceTree = "<group>"; };
 		8E1BB95F24741A8E00119A49 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8E1BB96024741A8E00119A49 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		8E1BB963247424C800119A49 /* CurrencyLayerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyLayerRouter.swift; sourceTree = "<group>"; };
+		8E1BB965247424E500119A49 /* CurrencyLayerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyLayerRepository.swift; sourceTree = "<group>"; };
+		8E1BB967247424F000119A49 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		8E1BB96A2474259000119A49 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		8E1BB96C247426DE00119A49 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +85,7 @@
 		8E1BB9142474142800119A49 = {
 			isa = PBXGroup;
 			children = (
+				8E1BB96C247426DE00119A49 /* README.md */,
 				8E1BB91F2474142800119A49 /* Xpense */,
 				8E1BB9392474142900119A49 /* XpenseTests */,
 				8E1BB91E2474142800119A49 /* Products */,
@@ -198,21 +209,25 @@
 		8E1BB94F2474185900119A49 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				8E1BB9502474186300119A49 /* Repositories */,
+				8E1BB967247424F000119A49 /* APIService.swift */,
+				8E1BB9502474186300119A49 /* CurrencyLayer */,
 			);
 			path = API;
 			sourceTree = "<group>";
 		};
-		8E1BB9502474186300119A49 /* Repositories */ = {
+		8E1BB9502474186300119A49 /* CurrencyLayer */ = {
 			isa = PBXGroup;
 			children = (
+				8E1BB963247424C800119A49 /* CurrencyLayerRouter.swift */,
+				8E1BB965247424E500119A49 /* CurrencyLayerRepository.swift */,
 			);
-			path = Repositories;
+			path = CurrencyLayer;
 			sourceTree = "<group>";
 		};
 		8E1BB9512474187200119A49 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				8E1BB96A2474259000119A49 /* Logger.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -308,6 +323,7 @@
 				8E1BB95A24741A7000119A49 /* TransactionListingViewController.xib in Resources */,
 				8E1BB95E24741A8300119A49 /* CategoryListingViewController.xib in Resources */,
 				8E1BB9302474142900119A49 /* LaunchScreen.storyboard in Resources */,
+				8E1BB96D247426DE00119A49 /* README.md in Resources */,
 				8E1BB9542474196700119A49 /* Localizable.strings in Resources */,
 				8E1BB92D2474142900119A49 /* Assets.xcassets in Resources */,
 				8E1BB96224741A8E00119A49 /* SettingsViewController.xib in Resources */,
@@ -329,12 +345,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E1BB95624741A1300119A49 /* TabBarController.swift in Sources */,
+				8E1BB96B2474259000119A49 /* Logger.swift in Sources */,
 				8E1BB9212474142800119A49 /* AppDelegate.swift in Sources */,
 				8E1BB96124741A8E00119A49 /* SettingsViewController.swift in Sources */,
 				8E1BB95924741A7000119A49 /* TransactionListingViewController.swift in Sources */,
 				8E1BB95D24741A8300119A49 /* CategoryListingViewController.swift in Sources */,
+				8E1BB964247424C800119A49 /* CurrencyLayerRouter.swift in Sources */,
+				8E1BB968247424F000119A49 /* APIService.swift in Sources */,
 				8E1BB92B2474142800119A49 /* Xpense.xcdatamodeld in Sources */,
 				8E1BB9232474142800119A49 /* SceneDelegate.swift in Sources */,
+				8E1BB966247424E500119A49 /* CurrencyLayerRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +508,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Xpense/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -505,6 +526,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Xpense/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
