@@ -9,3 +9,5 @@
 "transaction-listing-tab-title" = "Transactions";
 "category-listing-tab-title" = "Categories";
 "settings-tab-title" = "Settings";
+
+"api-error-generic" = "Something went wrong 😱";

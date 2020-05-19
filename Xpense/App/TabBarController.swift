@@ -9,7 +9,7 @@
 import UIKit
 
 class TabBarController: UITabBarController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewControllers()
@@ -21,13 +21,13 @@ private extension TabBarController {
     
     func setupViewControllers() {
         let transactionsVC = TransactionListingViewController()
-        transactionsVC.title = NSLocalizedString("transaction-listing-tab-title", comment: "")
+        transactionsVC.title = NSLocalizedString("transaction-listing-tab-title")
 
         let categoriesVC = CategoryListingViewController()
-        categoriesVC.title = NSLocalizedString("category-listing-tab-title", comment: "")
+        categoriesVC.title = NSLocalizedString("category-listing-tab-title")
         
         let settingsVC = SettingsViewController()
-        settingsVC.title = NSLocalizedString("settings-tab-title", comment: "")
+        settingsVC.title = NSLocalizedString("settings-tab-title")
 
         viewControllers = [transactionsVC, categoriesVC, settingsVC]
     }
