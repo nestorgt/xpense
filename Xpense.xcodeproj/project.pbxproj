@@ -9,12 +9,18 @@
 /* Begin PBXBuildFile section */
 		8E1BB9212474142800119A49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1BB9202474142800119A49 /* AppDelegate.swift */; };
 		8E1BB9232474142800119A49 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1BB9222474142800119A49 /* SceneDelegate.swift */; };
-		8E1BB9252474142800119A49 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1BB9242474142800119A49 /* ViewController.swift */; };
-		8E1BB9282474142800119A49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E1BB9262474142800119A49 /* Main.storyboard */; };
 		8E1BB92B2474142800119A49 /* Xpense.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8E1BB9292474142800119A49 /* Xpense.xcdatamodeld */; };
 		8E1BB92D2474142900119A49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E1BB92C2474142900119A49 /* Assets.xcassets */; };
 		8E1BB9302474142900119A49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E1BB92E2474142900119A49 /* LaunchScreen.storyboard */; };
 		8E1BB93B2474142900119A49 /* XpenseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1BB93A2474142900119A49 /* XpenseTests.swift */; };
+		8E1BB9542474196700119A49 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8E1BB9532474196700119A49 /* Localizable.strings */; };
+		8E1BB95624741A1300119A49 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1BB95524741A1300119A49 /* TabBarController.swift */; };
+		8E1BB95924741A7000119A49 /* TransactionListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1BB95724741A7000119A49 /* TransactionListingViewController.swift */; };
+		8E1BB95A24741A7000119A49 /* TransactionListingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E1BB95824741A7000119A49 /* TransactionListingViewController.xib */; };
+		8E1BB95D24741A8300119A49 /* CategoryListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1BB95B24741A8300119A49 /* CategoryListingViewController.swift */; };
+		8E1BB95E24741A8300119A49 /* CategoryListingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E1BB95C24741A8300119A49 /* CategoryListingViewController.xib */; };
+		8E1BB96124741A8E00119A49 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1BB95F24741A8E00119A49 /* SettingsViewController.swift */; };
+		8E1BB96224741A8E00119A49 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E1BB96024741A8E00119A49 /* SettingsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,8 +37,6 @@
 		8E1BB91D2474142800119A49 /* Xpense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Xpense.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E1BB9202474142800119A49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E1BB9222474142800119A49 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8E1BB9242474142800119A49 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8E1BB9272474142800119A49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8E1BB92A2474142800119A49 /* Xpense.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Xpense.xcdatamodel; sourceTree = "<group>"; };
 		8E1BB92C2474142900119A49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E1BB92F2474142900119A49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -40,6 +44,14 @@
 		8E1BB9362474142900119A49 /* XpenseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XpenseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E1BB93A2474142900119A49 /* XpenseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XpenseTests.swift; sourceTree = "<group>"; };
 		8E1BB93C2474142900119A49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E1BB9532474196700119A49 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		8E1BB95524741A1300119A49 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		8E1BB95724741A7000119A49 /* TransactionListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListingViewController.swift; sourceTree = "<group>"; };
+		8E1BB95824741A7000119A49 /* TransactionListingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionListingViewController.xib; sourceTree = "<group>"; };
+		8E1BB95B24741A8300119A49 /* CategoryListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListingViewController.swift; sourceTree = "<group>"; };
+		8E1BB95C24741A8300119A49 /* CategoryListingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryListingViewController.xib; sourceTree = "<group>"; };
+		8E1BB95F24741A8E00119A49 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		8E1BB96024741A8E00119A49 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,14 +93,12 @@
 		8E1BB91F2474142800119A49 /* Xpense */ = {
 			isa = PBXGroup;
 			children = (
-				8E1BB9202474142800119A49 /* AppDelegate.swift */,
-				8E1BB9222474142800119A49 /* SceneDelegate.swift */,
-				8E1BB9242474142800119A49 /* ViewController.swift */,
-				8E1BB9262474142800119A49 /* Main.storyboard */,
-				8E1BB92C2474142900119A49 /* Assets.xcassets */,
-				8E1BB92E2474142900119A49 /* LaunchScreen.storyboard */,
-				8E1BB9312474142900119A49 /* Info.plist */,
-				8E1BB9292474142800119A49 /* Xpense.xcdatamodeld */,
+				8E1BB9452474143100119A49 /* App */,
+				8E1BB94A247417AD00119A49 /* Services */,
+				8E1BB94B247417CF00119A49 /* Models */,
+				8E1BB9512474187200119A49 /* Components */,
+				8E1BB9522474187A00119A49 /* Extensions */,
+				8E1BB9482474176D00119A49 /* Supporting Files */,
 			);
 			path = Xpense;
 			sourceTree = "<group>";
@@ -97,9 +107,121 @@
 			isa = PBXGroup;
 			children = (
 				8E1BB93A2474142900119A49 /* XpenseTests.swift */,
-				8E1BB93C2474142900119A49 /* Info.plist */,
+				8E1BB9492474178000119A49 /* Supporting Files */,
 			);
 			path = XpenseTests;
+			sourceTree = "<group>";
+		};
+		8E1BB9452474143100119A49 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				8E1BB9202474142800119A49 /* AppDelegate.swift */,
+				8E1BB9222474142800119A49 /* SceneDelegate.swift */,
+				8E1BB95524741A1300119A49 /* TabBarController.swift */,
+				8E1BB94C2474180300119A49 /* Transaction Tab */,
+				8E1BB94D2474181300119A49 /* Category Tab */,
+				8E1BB94E2474181B00119A49 /* Settings Tab */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		8E1BB9462474144A00119A49 /* Databse Model */ = {
+			isa = PBXGroup;
+			children = (
+				8E1BB9292474142800119A49 /* Xpense.xcdatamodeld */,
+			);
+			path = "Databse Model";
+			sourceTree = "<group>";
+		};
+		8E1BB9482474176D00119A49 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8E1BB92E2474142900119A49 /* LaunchScreen.storyboard */,
+				8E1BB92C2474142900119A49 /* Assets.xcassets */,
+				8E1BB9312474142900119A49 /* Info.plist */,
+				8E1BB9532474196700119A49 /* Localizable.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8E1BB9492474178000119A49 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8E1BB93C2474142900119A49 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8E1BB94A247417AD00119A49 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8E1BB94F2474185900119A49 /* API */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8E1BB94B247417CF00119A49 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8E1BB9462474144A00119A49 /* Databse Model */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8E1BB94C2474180300119A49 /* Transaction Tab */ = {
+			isa = PBXGroup;
+			children = (
+				8E1BB95724741A7000119A49 /* TransactionListingViewController.swift */,
+				8E1BB95824741A7000119A49 /* TransactionListingViewController.xib */,
+			);
+			path = "Transaction Tab";
+			sourceTree = "<group>";
+		};
+		8E1BB94D2474181300119A49 /* Category Tab */ = {
+			isa = PBXGroup;
+			children = (
+				8E1BB95B24741A8300119A49 /* CategoryListingViewController.swift */,
+				8E1BB95C24741A8300119A49 /* CategoryListingViewController.xib */,
+			);
+			path = "Category Tab";
+			sourceTree = "<group>";
+		};
+		8E1BB94E2474181B00119A49 /* Settings Tab */ = {
+			isa = PBXGroup;
+			children = (
+				8E1BB95F24741A8E00119A49 /* SettingsViewController.swift */,
+				8E1BB96024741A8E00119A49 /* SettingsViewController.xib */,
+			);
+			path = "Settings Tab";
+			sourceTree = "<group>";
+		};
+		8E1BB94F2474185900119A49 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				8E1BB9502474186300119A49 /* Repositories */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		8E1BB9502474186300119A49 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		8E1BB9512474187200119A49 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		8E1BB9522474187A00119A49 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,9 +305,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E1BB95A24741A7000119A49 /* TransactionListingViewController.xib in Resources */,
+				8E1BB95E24741A8300119A49 /* CategoryListingViewController.xib in Resources */,
 				8E1BB9302474142900119A49 /* LaunchScreen.storyboard in Resources */,
+				8E1BB9542474196700119A49 /* Localizable.strings in Resources */,
 				8E1BB92D2474142900119A49 /* Assets.xcassets in Resources */,
-				8E1BB9282474142800119A49 /* Main.storyboard in Resources */,
+				8E1BB96224741A8E00119A49 /* SettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,8 +328,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E1BB9252474142800119A49 /* ViewController.swift in Sources */,
+				8E1BB95624741A1300119A49 /* TabBarController.swift in Sources */,
 				8E1BB9212474142800119A49 /* AppDelegate.swift in Sources */,
+				8E1BB96124741A8E00119A49 /* SettingsViewController.swift in Sources */,
+				8E1BB95924741A7000119A49 /* TransactionListingViewController.swift in Sources */,
+				8E1BB95D24741A8300119A49 /* CategoryListingViewController.swift in Sources */,
 				8E1BB92B2474142800119A49 /* Xpense.xcdatamodeld in Sources */,
 				8E1BB9232474142800119A49 /* SceneDelegate.swift in Sources */,
 			);
@@ -229,14 +357,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8E1BB9262474142800119A49 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8E1BB9272474142800119A49 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8E1BB92E2474142900119A49 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
