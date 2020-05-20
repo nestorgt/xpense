@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-protocol URLSessionManagerProtocol {
+protocol APIServiceProtocol {
     func perform(urlRequest: URLRequest, completion: @escaping (Result<Data, APIError>) -> Void)
 }
 
-final class URLSessionManager: URLSessionManagerProtocol {
+final class APIService: APIServiceProtocol {
     
     private let urlSession: URLSession
     
@@ -30,18 +30,18 @@ final class URLSessionManager: URLSessionManagerProtocol {
         urlSession.dataTask(with: urlRequest) { (data, response, error) in
             if let error = error {
                 Log.message("Request error: \(error.localizedDescription)", level: .error, category: .network)
-                completion(Result.failure(APIError.generic(message: error.localizedDescription)))
+                completion(.failure(.generic(message: error.localizedDescription)))
             } else if let response = response as? HTTPURLResponse, let data = data {
                 if let apiError = APIError.error(from: response.statusCode) {
                     Log.message("Request response code: \(response.statusCode)", level: .error, category: .network)
-                    completion(Result.failure(apiError))
+                    completion(.failure(apiError))
                 } else {
                     Log.message("Request OK: \(response.statusCode)", level: .info, category: .network)
-                    completion(Result.success(data))
+                    completion(.success(data))
                 }
             } else {
                 Log.message("Request Error: no response/data", level: .error, category: .network)
-                completion(Result.failure(APIError.generic(message: "no response/data")))
+                completion(.failure(.generic(message: "no response/data")))
             }
         }.resume()
     }
