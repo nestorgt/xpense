@@ -1,5 +1,5 @@
 //
-//  IntegrationTests.swift
+//  CurrencyLayerTests.swift
 //  IntegrationTests
 //
 //  Created by Nestor Garcia on 20/05/2020.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import Xpense
 
-final class APIServiceTests: XCTestCase {
+final class CurrencyLayerTests: XCTestCase {
 
     var apiService: APIService!
     var result: Result<Data, APIError>!
@@ -17,29 +17,33 @@ final class APIServiceTests: XCTestCase {
     override func setUp() {
         super.setUp()
         apiService = APIService()
-        
     }
     
-    func testRequestSuccess() throws {
-        performAndWait(for: URLRequest(url: URL(string: "https://www.google.com")!),
+    // MARK: - Tests
+
+    func testConvertSuccess_USDNZD_10() throws {
+        performAndWait(for: CurrencyLayerRouter.convert(fromCurrency: .USD, toCurrency: .NZD, amount: 10)!,
                        with: XCTestExpectation(description: "Performs a request"))
         
         XCTAssertTrue(result.isSuccess)
     }
     
-    func testRequestFailure_InsecureConnection() throws {
-        performAndWait(for: URLRequest(url: URL(string: "http://www.google.com")!),
+    func testConvertSuccess_EURUSD_100() throws {
+        performAndWait(for: CurrencyLayerRouter.convert(fromCurrency: .EUR, toCurrency: .USD, amount: 100)!,
                        with: XCTestExpectation(description: "Performs a request"))
         
-        XCTAssertTrue(result.isFailure)
+        XCTAssertTrue(result.isSuccess)
     }
     
-    func testRequestFailure_NotFound() throws {
-        performAndWait(for: URLRequest(url: URL(string: "https://www.google.com/notfound")!),
+    func testConvertSuccess_EURUSD_100_CustomDate() throws {
+        let date = Date.date(from: "2010-01-01", withFormat: "yyyy-MM-dd")!
+        performAndWait(for: CurrencyLayerRouter.convert(fromCurrency: .EUR, toCurrency: .USD, amount: 100, on: date)!,
                        with: XCTestExpectation(description: "Performs a request"))
         
-        XCTAssertTrue(result.error as? APIError == APIError.notFound)
+        XCTAssertTrue(result.isSuccess)
     }
+    
+    // MARK: - Helpers
     
     private func performAndWait(for urlRequest: URLRequest, with expectation: XCTestExpectation) {
         apiService.perform(urlRequest: urlRequest) { [weak self] result in
