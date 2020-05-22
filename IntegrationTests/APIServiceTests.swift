@@ -11,7 +11,7 @@ import XCTest
 
 final class APIServiceTests: XCTestCase {
 
-    var apiService: APIService!
+    var apiService: APIServiceProtocol!
     var result: Result<Data, APIError>!
     
     override func setUp() {
@@ -21,21 +21,21 @@ final class APIServiceTests: XCTestCase {
     
     // MARK: - Tests
     
-    func testRequestSuccess() throws {
+    func testRequestSuccess() {
         performAndWait(for: URLRequest(url: URL(string: "https://www.google.com")!),
                        with: XCTestExpectation(description: "Performs a request"))
         
         XCTAssertTrue(result.isSuccess)
     }
     
-    func testRequestSuccess_InsecureConnection() throws {
+    func testRequestSuccess_InsecureConnection() {
         performAndWait(for: URLRequest(url: URL(string: "http://www.google.com")!),
                        with: XCTestExpectation(description: "Performs a request"))
         
         XCTAssertTrue(result.isFailure)
     }
     
-    func testRequestFailure_NotFound() throws {
+    func testRequestFailure_NotFound() {
         performAndWait(for: URLRequest(url: URL(string: "https://www.google.com/notfound")!),
                        with: XCTestExpectation(description: "Performs a request"))
         

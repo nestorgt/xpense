@@ -11,45 +11,77 @@ import XCTest
 
 final class CurrencyLayerTests: XCTestCase {
 
-    var apiService: APIService!
-    var result: Result<Data, APIError>!
+    var currencyLayerRepository: CurrencyLayerRepositoryProtocol!
+    var convertResult: Result<CurrencyLayerConvertResponse, RepositoryError>!
     
     override func setUp() {
         super.setUp()
-        apiService = APIService()
+        currencyLayerRepository = CurrencyLayerRepository(apiService: APIService())
     }
     
     // MARK: - Tests
 
-    func testConvertSuccess_USDNZD_10() throws {
-        performAndWait(for: CurrencyLayerRouter.convert(fromCurrency: .USD, toCurrency: .NZD, amount: 10)!,
-                       with: XCTestExpectation(description: "Performs a request"))
-        
-        XCTAssertTrue(result.isSuccess)
-    }
-    
-    func testConvertSuccess_EURUSD_100() throws {
-        performAndWait(for: CurrencyLayerRouter.convert(fromCurrency: .EUR, toCurrency: .USD, amount: 100)!,
-                       with: XCTestExpectation(description: "Performs a request"))
-        
-        XCTAssertTrue(result.isSuccess)
-    }
-    
-    func testConvertSuccess_EURUSD_100_CustomDate() throws {
-        let date = Date.date(from: "2010-01-01", withFormat: "yyyy-MM-dd")!
-        performAndWait(for: CurrencyLayerRouter.convert(fromCurrency: .EUR, toCurrency: .USD, amount: 100, on: date)!,
-                       with: XCTestExpectation(description: "Performs a request"))
-        
-        XCTAssertTrue(result.isSuccess)
-    }
-    
-    // MARK: - Helpers
-    
-    private func performAndWait(for urlRequest: URLRequest, with expectation: XCTestExpectation) {
-        apiService.perform(urlRequest: urlRequest) { [weak self] result in
-            self?.result = result
-            expectation.fulfill()
+    func testConvertSuccess_USDNZD_10() {
+        let expectation = XCTestExpectation(description: "Performs a request")
+        currencyLayerRepository
+            .getConversion(fromCurrency: .USD, toCurrency: .NZD, amount: 10, on: Date()) { [weak self] result in
+                self?.convertResult = result
+                expectation.fulfill()
         }
         wait(for: [expectation], timeout: 2)
+
+        XCTAssertTrue(convertResult.isSuccess)
+        XCTAssertNotNil(convertResult.value)
+        XCTAssertTrue(convertResult.value?.success == true)
+        XCTAssertTrue(convertResult.value?.query == CurrencyLayerConvertResponse.Query(from: "USD", to: "NZD", amount: 10))
+    }
+    
+    func testConvertSuccess_EURUSD_100() {
+        let expectation = XCTestExpectation(description: "Performs a request")
+        currencyLayerRepository
+            .getConversion(fromCurrency: .EUR, toCurrency: .USD, amount: 100, on: Date()) { [weak self] result in
+                self?.convertResult = result
+                expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 2)
+
+        XCTAssertTrue(convertResult.isSuccess)
+        XCTAssertNotNil(convertResult.value)
+        XCTAssertTrue(convertResult.value?.success == true)
+        XCTAssertTrue(convertResult.value?.query == CurrencyLayerConvertResponse.Query(from: "EUR", to: "USD", amount: 100))
+    }
+    
+    func testConvertSuccess_EURUSD_100_CustomDate() {
+        let expectation = XCTestExpectation(description: "Performs a request")
+        let date = Date.date(from: "2010-01-01")!
+        currencyLayerRepository
+            .getConversion(fromCurrency: .EUR, toCurrency: .USD, amount: 100, on: date) { [weak self] result in
+                self?.convertResult = result
+                expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 2)
+        
+        XCTAssertTrue(convertResult.isSuccess)
+        XCTAssertNotNil(convertResult.value)
+        XCTAssertTrue(convertResult.value?.success == true)
+        XCTAssertTrue(convertResult.value?.query == CurrencyLayerConvertResponse.Query(from: "EUR", to: "USD", amount: 100))
+        XCTAssertTrue(convertResult.value?.date == Date.date(from: "2010-01-01"))
+    }
+    
+    func testConvertNoSuccess_FutureDate() {
+        let expectation = XCTestExpectation(description: "Performs a request")
+        let date = Date.date(from: "2222-01-01")!
+        currencyLayerRepository
+            .getConversion(fromCurrency: .EUR, toCurrency: .USD, amount: 100, on: date) { [weak self] result in
+                self?.convertResult = result
+                expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 2)
+        
+        XCTAssertTrue(convertResult.isSuccess)
+        XCTAssertNotNil(convertResult.value)
+        XCTAssertTrue(convertResult.value?.success == false)
+        XCTAssertTrue(convertResult.value?.error?.code == 106)
+        XCTAssertTrue(convertResult.value?.error?.info.isEmpty == false)
     }
 }

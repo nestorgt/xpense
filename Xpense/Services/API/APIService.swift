@@ -9,7 +9,14 @@
 import Foundation
 import UIKit
 
+/// Service used to make any http request
 protocol APIServiceProtocol {
+    
+    /// Generic method to make any http request and returning a result.
+    /// - Note: A succesfull result is returned in form of Data. The responsability of decoding that properly belongs to each Repository.
+    /// - Parameters:
+    ///   - urlRequest: URLRequest to be performed.
+    ///   - completion: async completion with the result in form of Data (on success) or APIError (on failure).
     func perform(urlRequest: URLRequest, completion: @escaping (Result<Data, APIError>) -> Void)
 }
 

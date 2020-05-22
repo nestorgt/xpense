@@ -8,8 +8,9 @@
 
 import Foundation
 
+/// Possible API errors returned by the API Service.
+/// A generic one was added for any unhandled error.
 enum APIError: Error, Equatable {
-    case decoder
     case badRequest
     case notFound
     case generic(message: String?)

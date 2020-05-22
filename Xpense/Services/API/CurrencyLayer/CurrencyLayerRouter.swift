@@ -14,7 +14,6 @@ struct CurrencyLayerRouter {
     private static let scheme = "https"
     private static let host = "api.currencylayer.com"
     private static let convertPath = "/convert"
-    private static let dateFormat = "yyyy-MM-dd"
     private static let timeoutInterval = 30.0
     
     /// Returns an URLRequest for the conversion amount of two currencies on a given date.
@@ -22,14 +21,17 @@ struct CurrencyLayerRouter {
     ///   - fromCurrency: Source of currency.
     ///   - toCurrency: Currency to which you want to know the conversion.
     ///   - date: Historical date of the quote.
-    static func convert(fromCurrency: Currency, toCurrency: Currency, amount: Double, on date: Date = Date()) -> URLRequest? {
+    static func convert(fromCurrency: Currency,
+                        toCurrency: Currency,
+                        amount: Double,
+                        on date: Date = Date()) -> URLRequest? {
         var components = commonComponents
         components.path = Self.convertPath
         components.queryItems = commonQueryItems
             + [URLQueryItem(name: "from", value: fromCurrency.rawValue),
                URLQueryItem(name: "to", value: toCurrency.rawValue),
                URLQueryItem(name: "amount", value: "\(amount)"),
-               URLQueryItem(name: "date", value: date.string(format: Self.dateFormat))]
+               URLQueryItem(name: "date", value: date.string())]
         
         guard let url = components.url else { return nil }
         var urlRequest = URLRequest(url: url,

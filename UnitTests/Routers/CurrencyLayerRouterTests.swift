@@ -13,7 +13,7 @@ class CurrencyLayerRouterTests: XCTestCase {
     
     // MARK: - Tests
     
-    func testConverRouter_USDNZD() throws {
+    func testConverRouter_USDNZD() {
         let urlRequest = CurrencyLayerRouter.convert(fromCurrency: .USD, toCurrency: .NZD, amount: 10)
         let stringURL = urlRequest?.url?.absoluteString
         
@@ -27,8 +27,8 @@ class CurrencyLayerRouterTests: XCTestCase {
         XCTAssertTrue(stringURL!.contains("amount=10"))
     }
     
-    func testConverRouter_USDNZD_CustomDate() throws {
-        let date = Date.date(from: "2010-01-01", withFormat: "yyyy-MM-dd")!
+    func testConverRouter_USDNZD_CustomDate() {
+        let date = Date.date(from: "2010-01-01")!
         let urlRequest = CurrencyLayerRouter.convert(fromCurrency: .EUR, toCurrency: .USD, amount: 100, on: date)
         let stringURL = urlRequest?.url?.absoluteString
         
