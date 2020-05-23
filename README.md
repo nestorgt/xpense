@@ -29,3 +29,7 @@ and a limitation on the convert endpoint
 }
 ```
 An upgraded version of the API is being used.
+
+## Improvements
+
+- Add database error propagation to show error feedback

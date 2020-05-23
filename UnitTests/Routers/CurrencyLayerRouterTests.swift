@@ -18,9 +18,9 @@ class CurrencyLayerRouterTests: XCTestCase {
         let stringURL = urlRequest?.url?.absoluteString
         
         XCTAssertNotNil(urlRequest)
-        XCTAssertTrue(urlRequest?.url?.host == "api.currencylayer.com")
-        XCTAssertTrue(urlRequest?.url?.lastPathComponent == "convert")
-        XCTAssertTrue(urlRequest?.httpMethod == "GET")
+        XCTAssertEqual(urlRequest?.url?.host, "api.currencylayer.com")
+        XCTAssertEqual(urlRequest?.url?.lastPathComponent, "convert")
+        XCTAssertEqual(urlRequest?.httpMethod, "GET")
         XCTAssertNotNil(stringURL)
         XCTAssertTrue(stringURL!.contains("from=USD"))
         XCTAssertTrue(stringURL!.contains("to=NZD"))
@@ -33,9 +33,9 @@ class CurrencyLayerRouterTests: XCTestCase {
         let stringURL = urlRequest?.url?.absoluteString
         
         XCTAssertNotNil(urlRequest)
-        XCTAssertTrue(urlRequest?.url?.host == "api.currencylayer.com")
-        XCTAssertTrue(urlRequest?.url?.lastPathComponent == "convert")
-        XCTAssertTrue(urlRequest?.httpMethod == "GET")
+        XCTAssertEqual(urlRequest?.url?.host, "api.currencylayer.com")
+        XCTAssertEqual(urlRequest?.url?.lastPathComponent, "convert")
+        XCTAssertEqual(urlRequest?.httpMethod, "GET")
         XCTAssertNotNil(stringURL)
         XCTAssertTrue(stringURL!.contains("from=EUR"))
         XCTAssertTrue(stringURL!.contains("to=USD"))

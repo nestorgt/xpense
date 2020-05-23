@@ -13,7 +13,7 @@ import os.log
 /// and can be viewed and filtered in the Console app.
 final class Log {
     static var enabledLevels: Set<Log.Level> = [.error, .info, .debug]
-    static var enabledCategories: Set<Log.Kind> = [.decoder, .network, .category, .other]
+    static var enabledCategories: Set<Log.Kind> = [.decoder, .network, .category, .database, .other]
     
     static func message(_ message: Any?, level: Log.Level, category: Log.Kind = .other) {
         guard enabledLevels.contains(level),
@@ -56,6 +56,7 @@ extension Log {
         case network
         case category
         case transaction
+        case database
         case other
         
         var description: String {

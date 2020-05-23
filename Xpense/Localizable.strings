@@ -6,8 +6,10 @@
   Copyright © 2020 nestor. All rights reserved.
 */
 
-"transaction-listing-tab-title" = "Transactions";
-"category-listing-tab-title" = "Categories";
+"transaction-tab-title" = "Transactions";
+"category-tab-title" = "Categories";
+
+"category-section-title" = "Categories";
 
 "api-error-generic" = "Something went wrong 😱";
 

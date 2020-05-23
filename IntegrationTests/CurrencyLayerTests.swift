@@ -32,8 +32,8 @@ final class CurrencyLayerTests: XCTestCase {
 
         XCTAssertTrue(convertResult.isSuccess)
         XCTAssertNotNil(convertResult.value)
-        XCTAssertTrue(convertResult.value?.success == true)
-        XCTAssertTrue(convertResult.value?.query == CurrencyLayerConvertResponse.Query(from: "USD", to: "NZD", amount: 10))
+        XCTAssertEqual(convertResult.value?.success, true)
+        XCTAssertEqual(convertResult.value?.query, CurrencyLayerConvertResponse.Query(from: "USD", to: "NZD", amount: 10))
     }
     
     func testConvertSuccess_EURUSD_100() {
@@ -47,8 +47,8 @@ final class CurrencyLayerTests: XCTestCase {
 
         XCTAssertTrue(convertResult.isSuccess)
         XCTAssertNotNil(convertResult.value)
-        XCTAssertTrue(convertResult.value?.success == true)
-        XCTAssertTrue(convertResult.value?.query == CurrencyLayerConvertResponse.Query(from: "EUR", to: "USD", amount: 100))
+        XCTAssertEqual(convertResult.value?.success, true)
+        XCTAssertEqual(convertResult.value?.query, CurrencyLayerConvertResponse.Query(from: "EUR", to: "USD", amount: 100))
     }
     
     func testConvertSuccess_EURUSD_100_CustomDate() {
@@ -63,9 +63,9 @@ final class CurrencyLayerTests: XCTestCase {
         
         XCTAssertTrue(convertResult.isSuccess)
         XCTAssertNotNil(convertResult.value)
-        XCTAssertTrue(convertResult.value?.success == true)
-        XCTAssertTrue(convertResult.value?.query == CurrencyLayerConvertResponse.Query(from: "EUR", to: "USD", amount: 100))
-        XCTAssertTrue(convertResult.value?.date == Date.date(from: "2010-01-01"))
+        XCTAssertEqual(convertResult.value?.success, true)
+        XCTAssertEqual(convertResult.value?.query, CurrencyLayerConvertResponse.Query(from: "EUR", to: "USD", amount: 100))
+        XCTAssertEqual(convertResult.value?.date, Date.date(from: "2010-01-01"))
     }
     
     func testConvertNoSuccess_FutureDate() {
@@ -80,8 +80,8 @@ final class CurrencyLayerTests: XCTestCase {
         
         XCTAssertTrue(convertResult.isSuccess)
         XCTAssertNotNil(convertResult.value)
-        XCTAssertTrue(convertResult.value?.success == false)
-        XCTAssertTrue(convertResult.value?.error?.code == 106)
-        XCTAssertTrue(convertResult.value?.error?.info.isEmpty == false)
+        XCTAssertEqual(convertResult.value?.success, false)
+        XCTAssertEqual(convertResult.value?.error?.code, 106)
+        XCTAssertEqual(convertResult.value?.error?.info.isEmpty, false)
     }
 }

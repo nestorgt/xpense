@@ -1,5 +1,5 @@
 //
-//  CategoryListingViewController.swift
+//  CategoryViewController.swift
 //  Xpense
 //
 //  Created by Nestor Garcia on 22/05/2020.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-class CategoryListingViewController: UITableViewController {
+class CategoryViewController: UITableViewController {
 
     static private let categoryCellIdentifier = "categoryCell"
-    var viewModel: CategoryTableViewModel
+    var viewModel: CategoryViewModel
     
-    init(viewModel: CategoryTableViewModel) {
+    init(viewModel: CategoryViewModel) {
         self.viewModel = viewModel
         super.init(style: .grouped)
         title = viewModel.screentTitle
@@ -28,6 +28,11 @@ class CategoryListingViewController: UITableViewController {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: Self.categoryCellIdentifier)
         navigationController?.visibleViewController?.title = viewModel.screentTitle
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        refresh()
     }
     
     // MARK: - Table view data source
@@ -56,7 +61,9 @@ class CategoryListingViewController: UITableViewController {
             placeholderTwo: viewModel.alertHexPlaceholder,
             valueOne: viewModel.name(for: indexPath.row),
             valueTwo: viewModel.hexColor(for: indexPath.row)) { [weak self] (name, hex) in
-                if self?.viewModel.didEnter(nameString: name, hexString: hex, forIndex: indexPath.row) == false {
+                if self?.viewModel.didEnter(nameString: name, hexString: hex, forIndex: indexPath.row) == true {
+                    self?.refresh()
+                } else {
                     self?.view.shake()
                 }
         }
@@ -65,5 +72,15 @@ class CategoryListingViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         viewModel.nameForSection(section)
+    }
+}
+
+// MARK: - Private
+
+extension CategoryViewController {
+    
+    private func refresh() {
+        viewModel.refresh()
+        tableView.reloadData()
     }
 }

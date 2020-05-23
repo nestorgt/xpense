@@ -25,6 +25,10 @@ final class DependencyInjector {
     lazy var currencyLayerRepository: CurrencyLayerRepositoryProtocol = {
         return CurrencyLayerRepository(apiService: apiService)
     }()
+    lazy var databaseService: DatabaseServiceProtocol = DatabaseService()
+    lazy var categoryService: CategoryServiceProtocol = {
+       return CategoryService(databaseService: databaseService)
+    }()
         
     private init() { }
 }

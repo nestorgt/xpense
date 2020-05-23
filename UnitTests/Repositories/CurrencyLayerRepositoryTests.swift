@@ -36,7 +36,7 @@ class CurrencyLayerRepositoryTests: XCTestCase {
         
         XCTAssertTrue(result.isSuccess)
         let expectedResponse = try! JSONDecoder.xpense.decode(CurrencyLayerConvertResponse.self, from: data)
-        XCTAssertTrue(result.value == expectedResponse)
+        XCTAssertEqual(result.value, expectedResponse)
     }
     
     func testGetConversion_Failure_BadRequest() {
@@ -52,7 +52,7 @@ class CurrencyLayerRepositoryTests: XCTestCase {
         wait(for: [expectation], timeout: 2)
         
         XCTAssertTrue(result.isFailure)
-        XCTAssertTrue(result.error as? RepositoryError == RepositoryError.apiError(.badRequest))
+        XCTAssertEqual(result.error as? RepositoryError, RepositoryError.apiError(.badRequest))
     }
     
     func testGetConversion_Failure_NotFound() {
@@ -68,6 +68,6 @@ class CurrencyLayerRepositoryTests: XCTestCase {
         wait(for: [expectation], timeout: 2)
         
         XCTAssertTrue(result.isFailure)
-        XCTAssertTrue(result.error as? RepositoryError == RepositoryError.apiError(.notFound))
+        XCTAssertEqual(result.error as? RepositoryError, RepositoryError.apiError(.notFound))
     }
 }

@@ -1,5 +1,5 @@
 //
-//  CategoryTableViewModel.swift
+//  CategoryViewModel.swift
 //  Xpense
 //
 //  Created by Nestor Garcia on 22/05/2020.
@@ -8,11 +8,21 @@
 
 import UIKit
 
-final class CategoryTableViewModel {
+final class CategoryViewModel {
     
-    private let categories = Category.allCases
+    private var categoryService: CategoryServiceProtocol
     
-    var screentTitle: String { NSLocalizedString("category-listing-tab-title") }
+    private var categories: [Category] = []
+    
+    var screentTitle: String { NSLocalizedString("category-tab-title") }
+    
+    init(categoryService: CategoryServiceProtocol) {
+        self.categoryService = categoryService
+    }
+    
+    func refresh() {
+        categories = categoryService.fetchCategories()
+    }
     
     // MARK: - Table
     
@@ -36,7 +46,7 @@ final class CategoryTableViewModel {
     }
     
     func color(for index: Int) -> UIColor? {
-        category(for: index)?.defaultColor
+        UIColor(hex: category(for: index)?.hex ?? "")
     }
     
     func hexColor(for index: Int) -> String? {
@@ -44,7 +54,7 @@ final class CategoryTableViewModel {
     }
     
     func name(for index: Int) -> String? {
-        category(for: index)?.defaultName
+        category(for: index)?.name
     }
     
     // MARK: - Alert
@@ -69,14 +79,24 @@ final class CategoryTableViewModel {
         Log.message("User entry color: \(hexString ?? "<nil>") -> \(colorCheck ? "👍" : "👎")",
             level: .info, category: .category)
         
-        return nameCheck || colorCheck
-        // TODO: save color on db
+        let shouldStoreOnDB = nameCheck || colorCheck
+        if var updateCategory = category(for: index), shouldStoreOnDB {
+            if let name = nameString, nameCheck {
+                updateCategory.name = name
+            }
+            if let hex = hexString, colorCheck {
+                updateCategory.hex = hex
+            }
+            categoryService.save(category: updateCategory)
+        }
+        
+        return shouldStoreOnDB
     }
 }
 
 // MARK: - Private
 
-private extension CategoryTableViewModel {
+private extension CategoryViewModel {
     
     enum Section: Int, CaseIterable {
         case categories
@@ -84,7 +104,7 @@ private extension CategoryTableViewModel {
         var title: String {
             switch self {
             case .categories:
-                return "Categories"
+                return NSLocalizedString("category-section-title")
             }
         }
     }

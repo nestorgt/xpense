@@ -39,7 +39,7 @@ final class APIServiceTests: XCTestCase {
         performAndWait(for: URLRequest(url: URL(string: "https://www.google.com/notfound")!),
                        with: XCTestExpectation(description: "Performs a request"))
         
-        XCTAssertTrue(result.error as? APIError == APIError.notFound)
+        XCTAssertEqual(result.error as? APIError, APIError.notFound)
     }
     
     // MARK: - Helpers

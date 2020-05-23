@@ -38,10 +38,10 @@ class CurrencyLayerConvertResponseTests: XCTestCase {
         let response = try! JSONDecoder().decode(CurrencyLayerConvertResponse.self, from: jsonData)
         
         XCTAssertTrue(response.success)
-        XCTAssertTrue(response.query == CurrencyLayerConvertResponse.Query(from: "USD", to: "NZD", amount: 10))
-        XCTAssertTrue(response.quote == 1.62974)
-        XCTAssertTrue(response.date == Date.date(from: "2020-05-20"))
-        XCTAssertTrue(response.result == 16.2974)
+        XCTAssertEqual(response.query, CurrencyLayerConvertResponse.Query(from: "USD", to: "NZD", amount: 10))
+        XCTAssertEqual(response.quote, 1.62974)
+        XCTAssertEqual(response.date, Date.date(from: "2020-05-20"))
+        XCTAssertEqual(response.result, 16.2974)
         XCTAssertNil(response.error)
     }
     
@@ -64,7 +64,7 @@ class CurrencyLayerConvertResponseTests: XCTestCase {
         XCTAssertNil(response.quote)
         XCTAssertNil(response.date)
         XCTAssertNil(response.result)
-        XCTAssertTrue(response.error == CurrencyLayerConvertResponse.Error(
+        XCTAssertEqual(response.error, CurrencyLayerConvertResponse.Error(
             code: 105,
             info: "Access Restricted - Your current Subscription Plan does not support this API Function.")
         )

@@ -27,9 +27,9 @@
 		8E45239C24781264009936F6 /* CurrencyLayerRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E45239B24781264009936F6 /* CurrencyLayerRepositoryTests.swift */; };
 		8E45239E247813DB009936F6 /* CurrencyLayerConvertResponseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E45239D247813DB009936F6 /* CurrencyLayerConvertResponseMock.swift */; };
 		8E4523A0247826A7009936F6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E45239F247826A7009936F6 /* Category.swift */; };
-		8E4523A824782B8A009936F6 /* CategoryListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4523A724782B8A009936F6 /* CategoryListingViewController.swift */; };
+		8E4523A824782B8A009936F6 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4523A724782B8A009936F6 /* CategoryViewController.swift */; };
 		8E4523AC24782D2B009936F6 /* UIColors+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4523AB24782D2B009936F6 /* UIColors+.swift */; };
-		8E4523AE24783060009936F6 /* CategoryTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4523AD24783060009936F6 /* CategoryTableViewModel.swift */; };
+		8E4523AE24783060009936F6 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4523AD24783060009936F6 /* CategoryViewModel.swift */; };
 		8E4523B324784252009936F6 /* UIColor+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4523B224784252009936F6 /* UIColor+Tests.swift */; };
 		8E4523B524784325009936F6 /* Date+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4523B424784325009936F6 /* Date+Tests.swift */; };
 		8E4523B72478461B009936F6 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4523B62478461B009936F6 /* Alerts.swift */; };
@@ -47,6 +47,14 @@
 		8EE96C482477E3D5007E89BF /* DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE96C472477E3D5007E89BF /* DI.swift */; };
 		8EE96C4D247807C6007E89BF /* APIServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE96C4C247807C6007E89BF /* APIServiceMock.swift */; };
 		8EE96C4F24780940007E89BF /* CurrencyLayerRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE96C4E24780940007E89BF /* CurrencyLayerRepositoryMock.swift */; };
+		8EFB64A9247946B400B853B9 /* CategoryDB+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFB64A7247946B400B853B9 /* CategoryDB+CoreDataClass.swift */; };
+		8EFB64AA247946B400B853B9 /* CategoryDB+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFB64A8247946B400B853B9 /* CategoryDB+CoreDataProperties.swift */; };
+		8EFB64AC2479487300B853B9 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFB64AB2479487300B853B9 /* DatabaseService.swift */; };
+		8EFB64AE24794C9B00B853B9 /* CategoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFB64AD24794C9B00B853B9 /* CategoryType.swift */; };
+		8EFB64B42479950E00B853B9 /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFB64B32479950E00B853B9 /* CategoryService.swift */; };
+		8EFB64B82479B7B800B853B9 /* CategoryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFB64B72479B7B800B853B9 /* CategoryViewModelTests.swift */; };
+		8EFB64BA2479B7E400B853B9 /* CategoryServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFB64B92479B7E400B853B9 /* CategoryServiceMock.swift */; };
+		8EFB64BC2479BBA600B853B9 /* CategoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFB64BB2479BBA600B853B9 /* CategoryMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,9 +97,9 @@
 		8E45239B24781264009936F6 /* CurrencyLayerRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyLayerRepositoryTests.swift; sourceTree = "<group>"; };
 		8E45239D247813DB009936F6 /* CurrencyLayerConvertResponseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyLayerConvertResponseMock.swift; sourceTree = "<group>"; };
 		8E45239F247826A7009936F6 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		8E4523A724782B8A009936F6 /* CategoryListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListingViewController.swift; sourceTree = "<group>"; };
+		8E4523A724782B8A009936F6 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		8E4523AB24782D2B009936F6 /* UIColors+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColors+.swift"; sourceTree = "<group>"; };
-		8E4523AD24783060009936F6 /* CategoryTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewModel.swift; sourceTree = "<group>"; };
+		8E4523AD24783060009936F6 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		8E4523B224784252009936F6 /* UIColor+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Tests.swift"; sourceTree = "<group>"; };
 		8E4523B424784325009936F6 /* Date+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Tests.swift"; sourceTree = "<group>"; };
 		8E4523B62478461B009936F6 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
@@ -113,6 +121,14 @@
 		8EE96C472477E3D5007E89BF /* DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DI.swift; sourceTree = "<group>"; };
 		8EE96C4C247807C6007E89BF /* APIServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceMock.swift; sourceTree = "<group>"; };
 		8EE96C4E24780940007E89BF /* CurrencyLayerRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyLayerRepositoryMock.swift; sourceTree = "<group>"; };
+		8EFB64A7247946B400B853B9 /* CategoryDB+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryDB+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8EFB64A8247946B400B853B9 /* CategoryDB+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryDB+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8EFB64AB2479487300B853B9 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
+		8EFB64AD24794C9B00B853B9 /* CategoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryType.swift; sourceTree = "<group>"; };
+		8EFB64B32479950E00B853B9 /* CategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
+		8EFB64B72479B7B800B853B9 /* CategoryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModelTests.swift; sourceTree = "<group>"; };
+		8EFB64B92479B7E400B853B9 /* CategoryServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryServiceMock.swift; sourceTree = "<group>"; };
+		8EFB64BB2479BBA600B853B9 /* CategoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,7 +197,7 @@
 				8E1BB9222474142800119A49 /* SceneDelegate.swift */,
 				8E1BB95524741A1300119A49 /* TabBarController.swift */,
 				8E1BB94C2474180300119A49 /* Transaction Tab */,
-				8E1BB94E2474181B00119A49 /* Settings Tab */,
+				8E1BB94E2474181B00119A49 /* Category Tab */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -190,6 +206,8 @@
 			isa = PBXGroup;
 			children = (
 				8E1BB9292474142800119A49 /* Xpense.xcdatamodeld */,
+				8EFB64A7247946B400B853B9 /* CategoryDB+CoreDataClass.swift */,
+				8EFB64A8247946B400B853B9 /* CategoryDB+CoreDataProperties.swift */,
 			);
 			path = "Databse Model";
 			sourceTree = "<group>";
@@ -210,6 +228,8 @@
 			children = (
 				8EE96C472477E3D5007E89BF /* DI.swift */,
 				8E1BB94F2474185900119A49 /* API */,
+				8EFB64AB2479487300B853B9 /* DatabaseService.swift */,
+				8EFB64B32479950E00B853B9 /* CategoryService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -219,6 +239,7 @@
 			children = (
 				8E716FFE24758E0A007AF650 /* Currency.swift */,
 				8E45239F247826A7009936F6 /* Category.swift */,
+				8EFB64AD24794C9B00B853B9 /* CategoryType.swift */,
 				8E1BB9462474144A00119A49 /* Databse Model */,
 			);
 			path = Models;
@@ -233,13 +254,13 @@
 			path = "Transaction Tab";
 			sourceTree = "<group>";
 		};
-		8E1BB94E2474181B00119A49 /* Settings Tab */ = {
+		8E1BB94E2474181B00119A49 /* Category Tab */ = {
 			isa = PBXGroup;
 			children = (
-				8E4523A724782B8A009936F6 /* CategoryListingViewController.swift */,
-				8E4523AD24783060009936F6 /* CategoryTableViewModel.swift */,
+				8E4523A724782B8A009936F6 /* CategoryViewController.swift */,
+				8E4523AD24783060009936F6 /* CategoryViewModel.swift */,
 			);
-			path = "Settings Tab";
+			path = "Category Tab";
 			sourceTree = "<group>";
 		};
 		8E1BB94F2474185900119A49 /* API */ = {
@@ -365,6 +386,8 @@
 				8EE96C4C247807C6007E89BF /* APIServiceMock.swift */,
 				8EE96C4E24780940007E89BF /* CurrencyLayerRepositoryMock.swift */,
 				8E45239D247813DB009936F6 /* CurrencyLayerConvertResponseMock.swift */,
+				8EFB64B92479B7E400B853B9 /* CategoryServiceMock.swift */,
+				8EFB64BB2479BBA600B853B9 /* CategoryMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -372,6 +395,7 @@
 		8EFB649E247940DF00B853B9 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				8EFB64B72479B7B800B853B9 /* CategoryViewModelTests.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -511,15 +535,19 @@
 			files = (
 				8E1BB95624741A1300119A49 /* TabBarController.swift in Sources */,
 				8E1BB96B2474259000119A49 /* Logger.swift in Sources */,
+				8EFB64B42479950E00B853B9 /* CategoryService.swift in Sources */,
 				8E716FFB247581D0007AF650 /* Result+.swift in Sources */,
 				8E1BB9212474142800119A49 /* AppDelegate.swift in Sources */,
 				8E716FFF24758E0A007AF650 /* Currency.swift in Sources */,
 				8E1BB95924741A7000119A49 /* TransactionListingViewController.swift in Sources */,
 				8E7170052475A1A9007AF650 /* CurrencyLayerConvertResponse.swift in Sources */,
+				8EFB64AA247946B400B853B9 /* CategoryDB+CoreDataProperties.swift in Sources */,
 				8EE96C462477E2B1007E89BF /* RepositoryError.swift in Sources */,
+				8EFB64AC2479487300B853B9 /* DatabaseService.swift in Sources */,
 				8E1BB96F24742EB700119A49 /* APIError.swift in Sources */,
 				8E1BB97124742FFC00119A49 /* Localization+.swift in Sources */,
 				8E4523B72478461B009936F6 /* Alerts.swift in Sources */,
+				8EFB64AE24794C9B00B853B9 /* CategoryType.swift in Sources */,
 				8E1BB964247424C800119A49 /* CurrencyLayerRouter.swift in Sources */,
 				8E1BB968247424F000119A49 /* APIService.swift in Sources */,
 				8E717001247592A1007AF650 /* Date+.swift in Sources */,
@@ -528,10 +556,11 @@
 				8E1BB9232474142800119A49 /* SceneDelegate.swift in Sources */,
 				8EE96C482477E3D5007E89BF /* DI.swift in Sources */,
 				8E1BB966247424E500119A49 /* CurrencyLayerRepository.swift in Sources */,
-				8E4523AE24783060009936F6 /* CategoryTableViewModel.swift in Sources */,
+				8E4523AE24783060009936F6 /* CategoryViewModel.swift in Sources */,
 				8E4523A0247826A7009936F6 /* Category.swift in Sources */,
-				8E4523A824782B8A009936F6 /* CategoryListingViewController.swift in Sources */,
+				8E4523A824782B8A009936F6 /* CategoryViewController.swift in Sources */,
 				8E4523AC24782D2B009936F6 /* UIColors+.swift in Sources */,
+				8EFB64A9247946B400B853B9 /* CategoryDB+CoreDataClass.swift in Sources */,
 				8E4523B924784E1E009936F6 /* UIView+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -541,9 +570,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E7170072475A5AF007AF650 /* CurrencyLayerConvertResponseTests.swift in Sources */,
+				8EFB64BC2479BBA600B853B9 /* CategoryMock.swift in Sources */,
 				8E4523B324784252009936F6 /* UIColor+Tests.swift in Sources */,
 				8E4523B524784325009936F6 /* Date+Tests.swift in Sources */,
 				8E716FE224757DCD007AF650 /* CurrencyLayerRouterTests.swift in Sources */,
+				8EFB64BA2479B7E400B853B9 /* CategoryServiceMock.swift in Sources */,
+				8EFB64B82479B7B800B853B9 /* CategoryViewModelTests.swift in Sources */,
 				8EE96C4D247807C6007E89BF /* APIServiceMock.swift in Sources */,
 				8EE96C4F24780940007E89BF /* CurrencyLayerRepositoryMock.swift in Sources */,
 				8E45239C24781264009936F6 /* CurrencyLayerRepositoryTests.swift in Sources */,
