@@ -13,9 +13,9 @@ import os.log
 /// and can be viewed and filtered in the Console app.
 final class Log {
     static var enabledLevels: Set<Log.Level> = [.error, .info, .debug]
-    static var enabledCategories: Set<Log.Category> = [.decoder, .network, .other]
+    static var enabledCategories: Set<Log.Kind> = [.decoder, .network, .category, .other]
     
-    static func message(_ message: Any?, level: Log.Level, category: Log.Category = .other) {
+    static func message(_ message: Any?, level: Log.Level, category: Log.Kind = .other) {
         guard enabledLevels.contains(level),
             enabledCategories.contains(category)
             else { return }
@@ -50,14 +50,16 @@ extension Log {
         }
     }
 
-    /// Categories refers to the different sections of the app that could potentially send logs.
-    enum Category: String, CaseIterable {
+    /// Kind refers to the different sections of the app that could potentially send logs.
+    enum Kind: String, CaseIterable {
         case decoder
         case network
+        case category
+        case transaction
         case other
         
         var description: String {
-            if case self = Log.Category.other {
+            if case self = Log.Kind.other {
                 return ""
             } else {
                 return rawValue.capitalized

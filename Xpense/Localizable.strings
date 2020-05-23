@@ -8,6 +8,13 @@
 
 "transaction-listing-tab-title" = "Transactions";
 "category-listing-tab-title" = "Categories";
-"settings-tab-title" = "Settings";
 
 "api-error-generic" = "Something went wrong 😱";
+
+"alert-category-title" = "Category Setup";
+"alert-category-description" = "Please enter a new name and/or a new hex string value.";
+"alert-category-name-placeholder" = "Name";
+"alert-category-hex-placeholder" = "#123456";
+
+"generic-save" = "Save";
+"generic-cancel" = "Cancel";

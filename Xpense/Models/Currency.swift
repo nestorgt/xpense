@@ -12,8 +12,4 @@ enum Currency: String, CaseIterable {
     case USD
     case NZD
     case EUR
-    
-    func quote(from: Currency, to: Currency) -> String {
-        "\(from)\(to)"
-    }
 }

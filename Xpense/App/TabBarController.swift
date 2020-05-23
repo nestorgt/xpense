@@ -23,13 +23,9 @@ private extension TabBarController {
         let transactionsVC = TransactionListingViewController()
         transactionsVC.title = NSLocalizedString("transaction-listing-tab-title")
 
-        let categoriesVC = CategoryListingViewController()
-        categoriesVC.title = NSLocalizedString("category-listing-tab-title")
-        
-        let settingsVC = SettingsViewController()
-        settingsVC.title = NSLocalizedString("settings-tab-title")
+        let categoriesVC = CategoryListingViewController(viewModel: CategoryTableViewModel())
 
-        viewControllers = [transactionsVC, categoriesVC, settingsVC]
+        viewControllers = [transactionsVC, categoriesVC]
     }
     
     func setupTabBar() {

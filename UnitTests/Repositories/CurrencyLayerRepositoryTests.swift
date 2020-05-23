@@ -23,7 +23,7 @@ class CurrencyLayerRepositoryTests: XCTestCase {
     
     func testGetConversion_Success() {
         let expectation = XCTestExpectation(description: "Performs a request")
-        let data = CurrencyLayerConvertResponseMock.sampleData()
+        let data = CurrencyLayerConvertResponseMock.sampleData
         apiServiceMock.nextResult = .success(data)
         
         currencyLayerRepository

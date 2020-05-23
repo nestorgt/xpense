@@ -11,36 +11,31 @@ import Foundation
 
 struct CurrencyLayerConvertResponseMock {
     
-    static let sample = CurrencyLayerConvertResponse(
-        success: true,
-        query: CurrencyLayerConvertResponse.Query(from: "USD", to: "NZD", amount: 10),
-        quote: 1.62974,
-        date: Date(),
-        result: 16.2974,
-        error: nil
-    )
+    static let sample = try! JSONDecoder.xpense.decode(CurrencyLayerConvertResponse.self, from: sampleData)
     
-    static func sampleData() -> Data {
-        TestHelper.JSONData(fromString:
-            """
-            {
-                "success": true,
-                "terms": "https://currencylayer.com/terms",
-                "privacy": "https://currencylayer.com/privacy",
-                "query": {
-                    "from": "USD",
-                    "to": "NZD",
-                    "amount": 10
-                },
-                "info": {
-                    "timestamp": 1589995386,
-                    "quote": 1.62974
-                },
-                "historical": true,
-                "date": "2020-05-20",
-                "result": 16.2974
-            }
-            """
-        )
+    static func sampleJSONString() -> String {
+        """
+        {
+            "success": true,
+            "terms": "https://currencylayer.com/terms",
+            "privacy": "https://currencylayer.com/privacy",
+            "query": {
+                "from": "USD",
+                "to": "NZD",
+                "amount": 10
+            },
+            "info": {
+                "timestamp": 1589995386,
+                "quote": 1.62974
+            },
+            "historical": true,
+            "date": "2020-05-20",
+            "result": 16.2974
+        }
+        """
+    }
+    
+    static var sampleData: Data {
+        TestHelper.JSONData(fromString: sampleJSONString())
     }
 }

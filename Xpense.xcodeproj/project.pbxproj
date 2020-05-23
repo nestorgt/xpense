@@ -16,10 +16,6 @@
 		8E1BB95624741A1300119A49 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1BB95524741A1300119A49 /* TabBarController.swift */; };
 		8E1BB95924741A7000119A49 /* TransactionListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1BB95724741A7000119A49 /* TransactionListingViewController.swift */; };
 		8E1BB95A24741A7000119A49 /* TransactionListingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E1BB95824741A7000119A49 /* TransactionListingViewController.xib */; };
-		8E1BB95D24741A8300119A49 /* CategoryListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1BB95B24741A8300119A49 /* CategoryListingViewController.swift */; };
-		8E1BB95E24741A8300119A49 /* CategoryListingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E1BB95C24741A8300119A49 /* CategoryListingViewController.xib */; };
-		8E1BB96124741A8E00119A49 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1BB95F24741A8E00119A49 /* SettingsViewController.swift */; };
-		8E1BB96224741A8E00119A49 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E1BB96024741A8E00119A49 /* SettingsViewController.xib */; };
 		8E1BB964247424C800119A49 /* CurrencyLayerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1BB963247424C800119A49 /* CurrencyLayerRouter.swift */; };
 		8E1BB966247424E500119A49 /* CurrencyLayerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1BB965247424E500119A49 /* CurrencyLayerRepository.swift */; };
 		8E1BB968247424F000119A49 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1BB967247424F000119A49 /* APIService.swift */; };
@@ -30,6 +26,14 @@
 		8E45239A24780AAE009936F6 /* JSONDecoder+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E45239924780AAE009936F6 /* JSONDecoder+.swift */; };
 		8E45239C24781264009936F6 /* CurrencyLayerRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E45239B24781264009936F6 /* CurrencyLayerRepositoryTests.swift */; };
 		8E45239E247813DB009936F6 /* CurrencyLayerConvertResponseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E45239D247813DB009936F6 /* CurrencyLayerConvertResponseMock.swift */; };
+		8E4523A0247826A7009936F6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E45239F247826A7009936F6 /* Category.swift */; };
+		8E4523A824782B8A009936F6 /* CategoryListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4523A724782B8A009936F6 /* CategoryListingViewController.swift */; };
+		8E4523AC24782D2B009936F6 /* UIColors+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4523AB24782D2B009936F6 /* UIColors+.swift */; };
+		8E4523AE24783060009936F6 /* CategoryTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4523AD24783060009936F6 /* CategoryTableViewModel.swift */; };
+		8E4523B324784252009936F6 /* UIColor+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4523B224784252009936F6 /* UIColor+Tests.swift */; };
+		8E4523B524784325009936F6 /* Date+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4523B424784325009936F6 /* Date+Tests.swift */; };
+		8E4523B72478461B009936F6 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4523B62478461B009936F6 /* Alerts.swift */; };
+		8E4523B924784E1E009936F6 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4523B824784E1E009936F6 /* UIView+.swift */; };
 		8E716FE224757DCD007AF650 /* CurrencyLayerRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E716FE124757DCD007AF650 /* CurrencyLayerRouterTests.swift */; };
 		8E716FF024757DDC007AF650 /* APIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E716FEF24757DDC007AF650 /* APIServiceTests.swift */; };
 		8E716FFB247581D0007AF650 /* Result+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E716FFA247581D0007AF650 /* Result+.swift */; };
@@ -74,10 +78,6 @@
 		8E1BB95524741A1300119A49 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		8E1BB95724741A7000119A49 /* TransactionListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListingViewController.swift; sourceTree = "<group>"; };
 		8E1BB95824741A7000119A49 /* TransactionListingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionListingViewController.xib; sourceTree = "<group>"; };
-		8E1BB95B24741A8300119A49 /* CategoryListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListingViewController.swift; sourceTree = "<group>"; };
-		8E1BB95C24741A8300119A49 /* CategoryListingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryListingViewController.xib; sourceTree = "<group>"; };
-		8E1BB95F24741A8E00119A49 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		8E1BB96024741A8E00119A49 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		8E1BB963247424C800119A49 /* CurrencyLayerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyLayerRouter.swift; sourceTree = "<group>"; };
 		8E1BB965247424E500119A49 /* CurrencyLayerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyLayerRepository.swift; sourceTree = "<group>"; };
 		8E1BB967247424F000119A49 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
@@ -88,6 +88,14 @@
 		8E45239924780AAE009936F6 /* JSONDecoder+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+.swift"; sourceTree = "<group>"; };
 		8E45239B24781264009936F6 /* CurrencyLayerRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyLayerRepositoryTests.swift; sourceTree = "<group>"; };
 		8E45239D247813DB009936F6 /* CurrencyLayerConvertResponseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyLayerConvertResponseMock.swift; sourceTree = "<group>"; };
+		8E45239F247826A7009936F6 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		8E4523A724782B8A009936F6 /* CategoryListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListingViewController.swift; sourceTree = "<group>"; };
+		8E4523AB24782D2B009936F6 /* UIColors+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColors+.swift"; sourceTree = "<group>"; };
+		8E4523AD24783060009936F6 /* CategoryTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewModel.swift; sourceTree = "<group>"; };
+		8E4523B224784252009936F6 /* UIColor+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Tests.swift"; sourceTree = "<group>"; };
+		8E4523B424784325009936F6 /* Date+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Tests.swift"; sourceTree = "<group>"; };
+		8E4523B62478461B009936F6 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		8E4523B824784E1E009936F6 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		8E716FDF24757DCD007AF650 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E716FE124757DCD007AF650 /* CurrencyLayerRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyLayerRouterTests.swift; sourceTree = "<group>"; };
 		8E716FE324757DCD007AF650 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -173,7 +181,6 @@
 				8E1BB9222474142800119A49 /* SceneDelegate.swift */,
 				8E1BB95524741A1300119A49 /* TabBarController.swift */,
 				8E1BB94C2474180300119A49 /* Transaction Tab */,
-				8E1BB94D2474181300119A49 /* Category Tab */,
 				8E1BB94E2474181B00119A49 /* Settings Tab */,
 			);
 			path = App;
@@ -210,8 +217,9 @@
 		8E1BB94B247417CF00119A49 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8E1BB9462474144A00119A49 /* Databse Model */,
 				8E716FFE24758E0A007AF650 /* Currency.swift */,
+				8E45239F247826A7009936F6 /* Category.swift */,
+				8E1BB9462474144A00119A49 /* Databse Model */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -225,20 +233,11 @@
 			path = "Transaction Tab";
 			sourceTree = "<group>";
 		};
-		8E1BB94D2474181300119A49 /* Category Tab */ = {
-			isa = PBXGroup;
-			children = (
-				8E1BB95B24741A8300119A49 /* CategoryListingViewController.swift */,
-				8E1BB95C24741A8300119A49 /* CategoryListingViewController.xib */,
-			);
-			path = "Category Tab";
-			sourceTree = "<group>";
-		};
 		8E1BB94E2474181B00119A49 /* Settings Tab */ = {
 			isa = PBXGroup;
 			children = (
-				8E1BB95F24741A8E00119A49 /* SettingsViewController.swift */,
-				8E1BB96024741A8E00119A49 /* SettingsViewController.xib */,
+				8E4523A724782B8A009936F6 /* CategoryListingViewController.swift */,
+				8E4523AD24783060009936F6 /* CategoryTableViewModel.swift */,
 			);
 			path = "Settings Tab";
 			sourceTree = "<group>";
@@ -268,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				8E1BB96A2474259000119A49 /* Logger.swift */,
+				8E4523B62478461B009936F6 /* Alerts.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -279,6 +279,17 @@
 				8E716FFA247581D0007AF650 /* Result+.swift */,
 				8E717000247592A1007AF650 /* Date+.swift */,
 				8E45239924780AAE009936F6 /* JSONDecoder+.swift */,
+				8E4523AB24782D2B009936F6 /* UIColors+.swift */,
+				8E4523B824784E1E009936F6 /* UIView+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8E4523B12478423C009936F6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8E4523B224784252009936F6 /* UIColor+Tests.swift */,
+				8E4523B424784325009936F6 /* Date+Tests.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -291,6 +302,8 @@
 				8E71700F2475ABA0007AF650 /* Routers */,
 				8E7170102475ABC5007AF650 /* Repositories */,
 				8E71700E2475AB95007AF650 /* Models */,
+				8EFB649E247940DF00B853B9 /* View Models */,
+				8E4523B12478423C009936F6 /* Extensions */,
 				8E716FF824757DEB007AF650 /* Supporting Files */,
 			);
 			path = UnitTests;
@@ -354,6 +367,13 @@
 				8E45239D247813DB009936F6 /* CurrencyLayerConvertResponseMock.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		8EFB649E247940DF00B853B9 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -461,12 +481,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E1BB95A24741A7000119A49 /* TransactionListingViewController.xib in Resources */,
-				8E1BB95E24741A8300119A49 /* CategoryListingViewController.xib in Resources */,
 				8E1BB9302474142900119A49 /* LaunchScreen.storyboard in Resources */,
 				8E1BB96D247426DE00119A49 /* README.md in Resources */,
 				8E1BB9542474196700119A49 /* Localizable.strings in Resources */,
 				8E1BB92D2474142900119A49 /* Assets.xcassets in Resources */,
-				8E1BB96224741A8E00119A49 /* SettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,13 +514,12 @@
 				8E716FFB247581D0007AF650 /* Result+.swift in Sources */,
 				8E1BB9212474142800119A49 /* AppDelegate.swift in Sources */,
 				8E716FFF24758E0A007AF650 /* Currency.swift in Sources */,
-				8E1BB96124741A8E00119A49 /* SettingsViewController.swift in Sources */,
 				8E1BB95924741A7000119A49 /* TransactionListingViewController.swift in Sources */,
 				8E7170052475A1A9007AF650 /* CurrencyLayerConvertResponse.swift in Sources */,
 				8EE96C462477E2B1007E89BF /* RepositoryError.swift in Sources */,
 				8E1BB96F24742EB700119A49 /* APIError.swift in Sources */,
 				8E1BB97124742FFC00119A49 /* Localization+.swift in Sources */,
-				8E1BB95D24741A8300119A49 /* CategoryListingViewController.swift in Sources */,
+				8E4523B72478461B009936F6 /* Alerts.swift in Sources */,
 				8E1BB964247424C800119A49 /* CurrencyLayerRouter.swift in Sources */,
 				8E1BB968247424F000119A49 /* APIService.swift in Sources */,
 				8E717001247592A1007AF650 /* Date+.swift in Sources */,
@@ -511,6 +528,11 @@
 				8E1BB9232474142800119A49 /* SceneDelegate.swift in Sources */,
 				8EE96C482477E3D5007E89BF /* DI.swift in Sources */,
 				8E1BB966247424E500119A49 /* CurrencyLayerRepository.swift in Sources */,
+				8E4523AE24783060009936F6 /* CategoryTableViewModel.swift in Sources */,
+				8E4523A0247826A7009936F6 /* Category.swift in Sources */,
+				8E4523A824782B8A009936F6 /* CategoryListingViewController.swift in Sources */,
+				8E4523AC24782D2B009936F6 /* UIColors+.swift in Sources */,
+				8E4523B924784E1E009936F6 /* UIView+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +541,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E7170072475A5AF007AF650 /* CurrencyLayerConvertResponseTests.swift in Sources */,
+				8E4523B324784252009936F6 /* UIColor+Tests.swift in Sources */,
+				8E4523B524784325009936F6 /* Date+Tests.swift in Sources */,
 				8E716FE224757DCD007AF650 /* CurrencyLayerRouterTests.swift in Sources */,
 				8EE96C4D247807C6007E89BF /* APIServiceMock.swift in Sources */,
 				8EE96C4F24780940007E89BF /* CurrencyLayerRepositoryMock.swift in Sources */,
