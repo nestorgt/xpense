@@ -6,7 +6,7 @@
 //  Copyright © 2020 nestor. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class TransactionCellModel {
     let id: String
@@ -14,6 +14,7 @@ final class TransactionCellModel {
     let date: Date
     let amount: String
     let currency: Currency
+    let categoryColor: UIColor?
     var convertedAmount: String?
     var convertedCurrency: Currency?
     
@@ -29,11 +30,12 @@ final class TransactionCellModel {
                              date: transaction.date,
                              amount: String(format:"%f", transaction.amount),
                              currency: transaction.currency,
+                             categoryColor: UIColor(hex: transaction.category.hex),
                              convertedAmount: transaction.convertedAmount,
                              convertedCurrency: transaction.convertedCurrency)
     }
     
-    init(id: String, title: String, date: Date, amount: String, currency: Currency,
+    init(id: String, title: String, date: Date, amount: String, currency: Currency, categoryColor: UIColor?,
          convertedAmount: String?, convertedCurrency: Currency?,
          currencyLayerRepository: CurrencyLayerRepositoryProtocol = DI.currencyLayerRepository,
          transactionService: TransactionServiceProtocol = DI.transactionService) {
@@ -42,6 +44,7 @@ final class TransactionCellModel {
         self.date = date
         self.amount = amount
         self.currency = currency
+        self.categoryColor = categoryColor
         self.convertedAmount = convertedAmount
         self.convertedCurrency = convertedCurrency
         self.currencyLayerRepository = currencyLayerRepository

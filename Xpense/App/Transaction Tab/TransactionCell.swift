@@ -36,9 +36,10 @@ final class TransactionCell: UITableViewCell {
         }
         model.fetchConversionIfNeeded { [weak self] (amount, currency) in
             DispatchQueue.main.async {
-                self?.bottomRightLabel.text = "\(currency) \(amount ?? "")"
+                self?.bottomRightLabel.text = "\(currency ?? "") \(amount ?? "")"
             }
         }
+        topLeftLabel.textColor = model.categoryColor
     }
 }
 
