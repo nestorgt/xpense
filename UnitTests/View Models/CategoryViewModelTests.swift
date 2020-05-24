@@ -20,7 +20,7 @@ class CategoryViewModelTests: XCTestCase {
         vm = CategoryViewModel(categoryService: categoryServiceMock)
     }
     
-    func testIntialState_NoRows() {
+    func testIntialState() {
         XCTAssertEqual(vm.screentTitle, NSLocalizedString("category-tab-title"))
         XCTAssertEqual(vm.alertDescription, NSLocalizedString("alert-category-description"))
         XCTAssertEqual(vm.alertTitle, NSLocalizedString("alert-category-title"))

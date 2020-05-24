@@ -48,12 +48,15 @@ final class TransactionCellModel {
         self.transactionService = transactionService
     }
     
-    func fetchConversionIfNeeded(completion: @escaping (String?, String) -> Void) { // (Amount, Currency)
+    func fetchConversionIfNeeded(completion: @escaping (String?, String?) -> Void) { // (Amount, Currency)
         let toCurrency = CurrencyLayerRepository.userCurrency
         guard convertedAmount == nil
             && convertedCurrency == nil
             && toCurrency != currency
-            else { return }
+            else {
+                completion(nil,nil)
+                return
+        }
         currencyLayerRepository
             .getConversion(fromCurrency: currency,
                            toCurrency: toCurrency,

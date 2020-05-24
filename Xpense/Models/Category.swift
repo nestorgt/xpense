@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-struct Category {
+struct Category: Equatable {
     let id: String
     var name: String
     var hex: String

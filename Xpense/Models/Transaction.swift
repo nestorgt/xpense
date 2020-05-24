@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Transaction {
+struct Transaction: Equatable {
     var id: String
     var title: String
     var amount: Double

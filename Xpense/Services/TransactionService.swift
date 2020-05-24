@@ -18,6 +18,11 @@ protocol TransactionServiceProtocol {
     func save(transaction: Transaction)
     
     
+    /// Updates the conversion amount of the Transaction to the given values.
+    /// - Parameters:
+    ///   - amount: New amount to save.
+    ///   - currency: New currency to save.
+    ///   - transactionId: The transaction id to be modified (must exist on DB).
     func updateConversion(amount: String, currency: String, on transactionId: String)
 }
 

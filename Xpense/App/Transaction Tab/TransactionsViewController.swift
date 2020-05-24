@@ -54,6 +54,7 @@ class TransactionsViewController: UITableViewController {
         guard let viewMode = TransactionsViewModel.ViewMode(rawValue: segementedControl.selectedSegmentIndex) else { return }
         viewModel.viewMode = viewMode
         Log.message("View mode: \(viewModel.viewMode)", level: .info, type: .transaction)
+        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
     }
     
     // MARK: - Table view data source
