@@ -15,5 +15,6 @@ struct Transaction {
     var currency: Currency
     var category: Category
     var date: Date
-    var nzdAmount: String? = nil
+    var convertedCurrency: Currency? = nil
+    var convertedAmount: String? = nil
 }

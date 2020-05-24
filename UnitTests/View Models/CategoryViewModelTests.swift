@@ -34,9 +34,9 @@ class CategoryViewModelTests: XCTestCase {
     }
     
     func testWithThreeCategories() {
-        let c1 = CategoryMock.sample1
-        let c2 = CategoryMock.sample2
-        let c3 = CategoryMock.sample3
+        let c1 = CategoryMock.sampleRestaurant
+        let c2 = CategoryMock.sampleFurniture
+        let c3 = CategoryMock.sampleGambling
         categoryServiceMock.nextFetchCategories = [c1, c2, c3]
 
         vm.refresh()
@@ -54,9 +54,9 @@ class CategoryViewModelTests: XCTestCase {
     }
 
     func testWithThreeCategories_didEnter_NameAndHex() {
-        let c1 = CategoryMock.sample1
-        let c2 = CategoryMock.sample2
-        let c3 = CategoryMock.sample3
+        let c1 = CategoryMock.sampleRestaurant
+        let c2 = CategoryMock.sampleFurniture
+        let c3 = CategoryMock.sampleGambling
         categoryServiceMock.nextFetchCategories = [c1, c2, c3]
         vm.refresh()
     

@@ -33,8 +33,8 @@ final class APIService: APIServiceProtocol {
     // MARK: Requests
     
     func perform(urlRequest: URLRequest, completion: @escaping (Result<Data, APIError>) -> Void) {
-        Log.message(urlRequest.url?.absoluteString, level: .info, type: .network)
         urlSession.dataTask(with: urlRequest) { (data, response, error) in
+            Log.message(urlRequest.url?.absoluteString, level: .info, type: .network)
             if let error = error {
                 Log.message("Request error: \(error.localizedDescription)", level: .error, type: .network)
                 completion(.failure(.generic(message: error.localizedDescription)))

@@ -11,11 +11,14 @@ import CoreData
 
 protocol DatabaseServiceProtocol {
     
-    /// Fetch all categories from DB. Will create default ones if none is found.
+    /// Fetch all categories from DB.
     func fetchCategories() -> [Category]
     
     /// Create or update a category
     func saveCategory(_ category: Category)
+    
+    /// Fetch all transactions from DB.
+    func fetchTransactions() -> [Transaction]
     
     /// Create or update a transaction
     func saveTransaction(_ transaction: Transaction)
@@ -27,6 +30,7 @@ protocol DatabaseServiceProtocol {
 final class DatabaseService: DatabaseServiceProtocol {
     
     private var categories: [Category] = []
+    private var transactions: [Transaction] = []
     
     // MARK: - DatabaseServiceProtocol
     
@@ -43,6 +47,17 @@ final class DatabaseService: DatabaseServiceProtocol {
     
     func saveCategory(_ category: Category) {
         updateCategoryDB(from: category)
+    }
+    
+    func fetchTransactions() -> [Transaction] {
+        do {
+            let transactionDB: [TransactionDB] = try context.fetch(TransactionDB.fetchRequest())
+            transactions = transactionDB.compactMap { $0.toTransaction() }
+            Log.message("Found \(transactionDB.count) transactions", level: .info, type: .database)
+        } catch let error as NSError {
+            Log.message("Could not fetch transactions: \(error) - \(error.userInfo)", level: .error, type: .database)
+        }
+        return transactions
     }
     
     func saveTransaction(_ transaction: Transaction) {
@@ -124,6 +139,8 @@ private extension DatabaseService {
             transactionDB.amount = transaction.amount
             transactionDB.currency = transaction.currency.rawValue
             transactionDB.category = CategoryDB.createFromCategory(transaction.category, context: context)
+            transactionDB.convertedAmount = transaction.convertedAmount
+            transactionDB.convertedCurrency = transaction.convertedCurrency?.rawValue
         } else {
             Log.message("Creating DB entry \(transaction.id)", level: .info, type: .database)
             TransactionDB.createFromTransaction(transaction, context: context)

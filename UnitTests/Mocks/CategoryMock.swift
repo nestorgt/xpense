@@ -6,19 +6,41 @@
 //  Copyright © 2020 nestor. All rights reserved.
 //
 
-@testable import Xpense
-
 struct CategoryMock {
-
-    static var sample1: Category {
-        Category(id: "sjdljsl", name: "Bills", hex: "#010101")
+    
+    static var sampleClothing: Category {
+        Category(id: CategoryType.clothing.rawValue,
+                 name: CategoryType.clothing.defaultName,
+                 hex: CategoryType.clothing.defaultHexColor)
     }
     
-    static var sample2: Category {
-        Category(id: "u4nf983", name: "Food", hex: "#AFAFAF")
+    static var sampleGroceries: Category {
+        Category(id: CategoryType.groceries.rawValue,
+                 name: CategoryType.groceries.defaultName,
+                 hex: CategoryType.groceries.defaultHexColor)
     }
     
-    static var sample3: Category {
-        Category(id: "asd234f", name: "Services", hex: "#A0F1A0")
+    static var sampleBills: Category {
+        Category(id: CategoryType.bills.rawValue,
+                 name: CategoryType.bills.defaultName,
+                 hex: CategoryType.bills.defaultHexColor)
+    }
+    
+    static var sampleRestaurant: Category {
+        Category(id: CategoryType.restaurant.rawValue,
+                 name: CategoryType.restaurant.defaultName,
+                 hex: CategoryType.restaurant.defaultHexColor)
+    }
+    
+    static var sampleGambling: Category {
+        Category(id: CategoryType.gambling.rawValue,
+                 name: CategoryType.gambling.defaultName,
+                 hex: CategoryType.gambling.defaultHexColor)
+    }
+    
+    static var sampleFurniture: Category {
+        Category(id: CategoryType.furniture.rawValue,
+                 name: CategoryType.furniture.defaultName,
+                 hex: CategoryType.furniture.defaultHexColor)
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 
 class TransactionsViewController: UITableViewController {
 
+    private let segmentedController = UISegmentedControl(items: TransactionsViewModel.ViewMode.allCases.map { $0.title })
     static private let transactionCellIdentifier = "transactionCell"
     var viewModel: TransactionsViewModel
     
@@ -27,18 +28,32 @@ class TransactionsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        setupViewModel()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupNavigationBar()
-//        refresh()
+        refresh()
     }
+    
+    // MARK: - User Input
     
     @objc func addTransaction() {
         let vc = AddTransactionViewController(nibName: "AddTransactionViewController", bundle: nil)
-        vc.viewModel = AddTransactionViewModel()
+        let vm = AddTransactionViewModel()
+        vm.didFinishSaving = { [weak self] success in
+            guard success else { return }
+            self?.refresh()
+        }
+        vc.viewModel = vm
         navigationController?.present(UINavigationController(rootViewController: vc), animated: true)
+    }
+    
+    @objc func didChangeViewMode(_ segementedControl: UISegmentedControl) {
+        guard let viewMode = TransactionsViewModel.ViewMode(rawValue: segementedControl.selectedSegmentIndex) else { return }
+        viewModel.viewMode = viewMode
+        Log.message("View mode: \(viewModel.viewMode)", level: .info, type: .transaction)
     }
     
     // MARK: - Table view data source
@@ -52,14 +67,15 @@ class TransactionsViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Self.transactionCellIdentifier, for: indexPath)
-//        cell.textLabel?.text = viewModel.name(for: indexPath.row)
-//        cell.textLabel?.textColor = viewModel.color(for: indexPath.row) ?? .black
+        guard let cell = tableView
+            .dequeueReusableCell(withIdentifier: Self.transactionCellIdentifier, for: indexPath) as? TransactionCell,
+            let cellModel = viewModel.transactionCellModel(for: indexPath)
+            else {
+                Log.message("Can't create trasaction cell", level: .error, type: .transaction)
+                return UITableViewCell()
+        }
+        cell.setup(with: cellModel)
         return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -72,12 +88,27 @@ class TransactionsViewController: UITableViewController {
 private extension TransactionsViewController {
 
     func setupTableView() {
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Self.transactionCellIdentifier)
+        let xib = UINib(nibName: "TransactionCell", bundle: nil)
+        tableView.register(xib, forCellReuseIdentifier: Self.transactionCellIdentifier)
+        tableView.allowsSelection = false
     }
     
     func setupNavigationBar() {
-        navigationController?.visibleViewController?.title = viewModel.screentTitle
         navigationController?.visibleViewController?.navigationItem.rightBarButtonItem =
             UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTransaction))
+        segmentedController.selectedSegmentIndex = viewModel.viewMode.rawValue
+        segmentedController.addTarget(self, action: #selector(didChangeViewMode(_:)), for: .valueChanged)
+        navigationController?.visibleViewController?.navigationItem.titleView = segmentedController
+    }
+    
+    func setupViewModel() {
+        viewModel.shouldRefresh = { [weak self] in
+            self?.tableView.reloadData()
+        }
+    }
+    
+    func refresh() {
+        viewModel.refresh()
+        tableView.reloadData()
     }
 }

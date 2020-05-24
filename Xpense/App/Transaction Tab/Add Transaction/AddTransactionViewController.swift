@@ -88,6 +88,8 @@ private extension AddTransactionViewController {
     
     func setupInputs() {
         titleTextField.keyboardType = .default
+        titleTextField.autocapitalizationType = .none
+        titleTextField.autocorrectionType = .no
         titleTextField.placeholder = viewModel?.titlePlaceholder
         titleTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         amountTextField.keyboardType = .decimalPad

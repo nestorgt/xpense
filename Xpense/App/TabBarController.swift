@@ -30,6 +30,7 @@ private extension TabBarController {
         
         // Load initial categories
         _ = DI.categoryService.fetchCategories()
+        _ = DI.transactionService.fetchTransactions()
     }
     
     func setupTabBar() {

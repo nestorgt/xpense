@@ -32,6 +32,11 @@
 		8E4523B524784325009936F6 /* Date+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4523B424784325009936F6 /* Date+Tests.swift */; };
 		8E4523B72478461B009936F6 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4523B62478461B009936F6 /* Alerts.swift */; };
 		8E4523B924784E1E009936F6 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4523B824784E1E009936F6 /* UIView+.swift */; };
+		8E6773EB247A958A003B89EC /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E6773EA247A958A003B89EC /* TransactionCell.xib */; };
+		8E6773ED247A96EF003B89EC /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6773EC247A96EF003B89EC /* TransactionCell.swift */; };
+		8E6773EF247A99A4003B89EC /* TransactionCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6773EE247A99A4003B89EC /* TransactionCellModel.swift */; };
+		8E6773FA247ABE8C003B89EC /* TransactionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6773F8247ABE85003B89EC /* TransactionMock.swift */; };
+		8E6773FD247AC156003B89EC /* CategoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFB64BB2479BBA600B853B9 /* CategoryMock.swift */; };
 		8E716FE224757DCD007AF650 /* CurrencyLayerRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E716FE124757DCD007AF650 /* CurrencyLayerRouterTests.swift */; };
 		8E716FF024757DDC007AF650 /* APIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E716FEF24757DDC007AF650 /* APIServiceTests.swift */; };
 		8E716FFB247581D0007AF650 /* Result+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E716FFA247581D0007AF650 /* Result+.swift */; };
@@ -61,7 +66,6 @@
 		8EFB64B42479950E00B853B9 /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFB64B32479950E00B853B9 /* CategoryService.swift */; };
 		8EFB64B82479B7B800B853B9 /* CategoryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFB64B72479B7B800B853B9 /* CategoryViewModelTests.swift */; };
 		8EFB64BA2479B7E400B853B9 /* CategoryServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFB64B92479B7E400B853B9 /* CategoryServiceMock.swift */; };
-		8EFB64BC2479BBA600B853B9 /* CategoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFB64BB2479BBA600B853B9 /* CategoryMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +113,10 @@
 		8E4523B424784325009936F6 /* Date+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Tests.swift"; sourceTree = "<group>"; };
 		8E4523B62478461B009936F6 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		8E4523B824784E1E009936F6 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		8E6773EA247A958A003B89EC /* TransactionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
+		8E6773EC247A96EF003B89EC /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
+		8E6773EE247A99A4003B89EC /* TransactionCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCellModel.swift; sourceTree = "<group>"; };
+		8E6773F8247ABE85003B89EC /* TransactionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionMock.swift; sourceTree = "<group>"; };
 		8E716FDF24757DCD007AF650 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E716FE124757DCD007AF650 /* CurrencyLayerRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyLayerRouterTests.swift; sourceTree = "<group>"; };
 		8E716FE324757DCD007AF650 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -268,6 +276,9 @@
 			children = (
 				8E90B50E2479CCFD00668D0C /* TransactionsViewController.swift */,
 				8E90B5102479CD0600668D0C /* TransactionsViewModel.swift */,
+				8E6773EC247A96EF003B89EC /* TransactionCell.swift */,
+				8E6773EE247A99A4003B89EC /* TransactionCellModel.swift */,
+				8E6773EA247A958A003B89EC /* TransactionCell.xib */,
 				8E90B5122479D37500668D0C /* Add Transaction */,
 			);
 			path = "Transaction Tab";
@@ -417,6 +428,7 @@
 				8E45239D247813DB009936F6 /* CurrencyLayerConvertResponseMock.swift */,
 				8EFB64B92479B7E400B853B9 /* CategoryServiceMock.swift */,
 				8EFB64BB2479BBA600B853B9 /* CategoryMock.swift */,
+				8E6773F8247ABE85003B89EC /* TransactionMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -535,6 +547,7 @@
 			files = (
 				8E1BB9302474142900119A49 /* LaunchScreen.storyboard in Resources */,
 				8E90B5162479D3A600668D0C /* AddTransactionViewController.xib in Resources */,
+				8E6773EB247A958A003B89EC /* TransactionCell.xib in Resources */,
 				8E1BB96D247426DE00119A49 /* README.md in Resources */,
 				8E1BB9542474196700119A49 /* Localizable.strings in Resources */,
 				8E1BB92D2474142900119A49 /* Assets.xcassets in Resources */,
@@ -576,11 +589,13 @@
 				8EFB64AA247946B400B853B9 /* CategoryDB+CoreDataProperties.swift in Sources */,
 				8EE96C462477E2B1007E89BF /* RepositoryError.swift in Sources */,
 				8E90B51A2479E1E500668D0C /* Transaction.swift in Sources */,
+				8E6773EF247A99A4003B89EC /* TransactionCellModel.swift in Sources */,
 				8E90B50F2479CCFD00668D0C /* TransactionsViewController.swift in Sources */,
 				8EFB64AC2479487300B853B9 /* DatabaseService.swift in Sources */,
 				8E1BB96F24742EB700119A49 /* APIError.swift in Sources */,
 				8E1BB97124742FFC00119A49 /* Localization+.swift in Sources */,
 				8E4523B72478461B009936F6 /* Alerts.swift in Sources */,
+				8E6773ED247A96EF003B89EC /* TransactionCell.swift in Sources */,
 				8EFB64AE24794C9B00B853B9 /* CategoryType.swift in Sources */,
 				8E90B5202479F0D000668D0C /* TransactionDB+CoreDataProperties.swift in Sources */,
 				8E1BB964247424C800119A49 /* CurrencyLayerRouter.swift in Sources */,
@@ -597,6 +612,8 @@
 				8E4523A824782B8A009936F6 /* CategoryViewController.swift in Sources */,
 				8E4523AC24782D2B009936F6 /* UIColors+.swift in Sources */,
 				8EFB64A9247946B400B853B9 /* CategoryDB+CoreDataClass.swift in Sources */,
+				8E6773FD247AC156003B89EC /* CategoryMock.swift in Sources */,
+				8E6773FA247ABE8C003B89EC /* TransactionMock.swift in Sources */,
 				8E4523B924784E1E009936F6 /* UIView+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -606,7 +623,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E7170072475A5AF007AF650 /* CurrencyLayerConvertResponseTests.swift in Sources */,
-				8EFB64BC2479BBA600B853B9 /* CategoryMock.swift in Sources */,
 				8E4523B324784252009936F6 /* UIColor+Tests.swift in Sources */,
 				8E4523B524784325009936F6 /* Date+Tests.swift in Sources */,
 				8E716FE224757DCD007AF650 /* CurrencyLayerRouterTests.swift in Sources */,

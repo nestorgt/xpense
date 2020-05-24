@@ -66,6 +66,7 @@ final class AddTransactionViewModel {
     // MARK: -
     
     var shouldRefresh: (() -> Void)?
+    var didFinishSaving: ((Bool) -> Void)?
     
     var canSave: Bool {
         selectedCurrency != nil
@@ -81,6 +82,7 @@ final class AddTransactionViewModel {
             let category = selectedCategory
             else {
                 Log.message("Can't save", level: .error, type: .transaction)
+                didFinishSaving?(false)
                 return
         }
         let transaction = Transaction(
@@ -92,7 +94,8 @@ final class AddTransactionViewModel {
             date: selectedDate
         )
         Log.message("Saving transaction: \(transaction)", level: .info, type: .transaction)
-        transactionService.saveTransaction(transaction)
+        transactionService.save(transaction: transaction)
+        didFinishSaving?(true)
     }
     
     // MARK: - User Interaction

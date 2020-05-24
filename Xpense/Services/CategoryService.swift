@@ -11,6 +11,7 @@ import Foundation
 protocol CategoryServiceProtocol {
     
     /// Fetch all categories sorted by name.
+    /// - Note: Will create default ones if none is found.
     func fetchCategories() -> [Category]
     
     /// Saves or updates a category
@@ -48,8 +49,7 @@ final class CategoryService: CategoryServiceProtocol {
 private extension CategoryService {
     
     func defaultCategories() -> [Category] {
-        CategoryType.allCases.map {
-            Category(id: $0.defaultName, name: $0.defaultName, hex: $0.defaultHexColor)
-        }
+        [CategoryMock.sampleBills, CategoryMock.sampleGroceries, CategoryMock.sampleClothing,
+         CategoryMock.sampleGambling, CategoryMock.sampleFurniture, CategoryMock.sampleRestaurant]
     }
 }

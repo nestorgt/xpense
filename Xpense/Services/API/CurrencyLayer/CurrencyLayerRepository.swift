@@ -27,6 +27,8 @@ protocol CurrencyLayerRepositoryProtocol {
 
 final class CurrencyLayerRepository: CurrencyLayerRepositoryProtocol {
     
+    static let userCurrency = Currency.NZD
+    
     private let apiService: APIServiceProtocol
     
     init(apiService: APIServiceProtocol = DI.apiService) {

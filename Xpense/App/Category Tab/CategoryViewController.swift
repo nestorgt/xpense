@@ -89,6 +89,7 @@ private extension CategoryViewController {
     }
     
     func setupNavigationBar() {
+        navigationController?.visibleViewController?.navigationItem.titleView = nil
         navigationController?.visibleViewController?.title = viewModel.screentTitle
         navigationController?.visibleViewController?.navigationItem.rightBarButtonItem = nil
     }

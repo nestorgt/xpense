@@ -28,7 +28,8 @@ public class TransactionDB: NSManagedObject {
                            currency: currency,
                            category: category,
                            date: date,
-                           nzdAmount: nzdAmount)
+                           convertedCurrency: Currency(rawValue: convertedCurrency ?? ""),
+                           convertedAmount: convertedAmount)
     }
     
     static func createFromTransaction(_ transaction: Transaction, context: NSManagedObjectContext) {
@@ -38,8 +39,10 @@ public class TransactionDB: NSManagedObject {
         transactionDB.amount = transaction.amount
         transactionDB.currency = transaction.currency.rawValue
         transactionDB.date = transaction.date
-        transactionDB.nzdAmount = transaction.nzdAmount
+        transactionDB.convertedCurrency = transaction.convertedCurrency?.rawValue
+        transactionDB.convertedAmount = transaction.convertedAmount
         
+        // Fing the Category in the DB
         let request = CategoryDB.fetchRequest() as NSFetchRequest<CategoryDB>
         request.predicate = NSPredicate(format: "id == %@", transaction.category.id)
         let result = (try? context.fetch(request))?.first

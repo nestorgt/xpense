@@ -21,12 +21,19 @@ public class CategoryDB: NSManagedObject {
         return Category(id: id, name: name, hex: hex)
     }
     
+    /// Find if there is already ony in the DB, if not, create a new entry
     @discardableResult
     static func createFromCategory(_ category: Category, context: NSManagedObjectContext) -> CategoryDB {
-        let categoryDB = CategoryDB(context: context)
-        categoryDB.id = category.id
-        categoryDB.name = category.name
-        categoryDB.hex = category.hex
-        return categoryDB
+        let request = CategoryDB.fetchRequest() as NSFetchRequest<CategoryDB>
+        request.predicate = NSPredicate(format: "id == %@", category.id)
+        if let result = (try? context.fetch(request))?.first {
+            return result
+        } else {
+            let categoryDB = CategoryDB(context: context)
+            categoryDB.id = category.id
+            categoryDB.name = category.name
+            categoryDB.hex = category.hex
+            return categoryDB
+        }
     }
 }

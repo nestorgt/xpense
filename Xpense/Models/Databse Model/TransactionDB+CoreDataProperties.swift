@@ -19,10 +19,11 @@ extension TransactionDB {
 
     @NSManaged public var amount: Double
     @NSManaged public var currency: String?
-    @NSManaged public var id: String?
-    @NSManaged public var nzdAmount: String?
-    @NSManaged public var title: String?
     @NSManaged public var date: Date?
+    @NSManaged public var id: String?
+    @NSManaged public var convertedAmount: String?
+    @NSManaged public var title: String?
+    @NSManaged public var convertedCurrency: String?
     @NSManaged public var category: CategoryDB?
 
 }
