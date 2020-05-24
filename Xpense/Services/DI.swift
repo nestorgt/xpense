@@ -12,7 +12,6 @@ let DI = DependencyInjector.shared // quick accessor
 
 /// Dependency injector to share common components across the App.
 protocol DependencyInjectorProtocol {
-    
     var apiService: APIServiceProtocol { get }
     var currencyLayerRepository: CurrencyLayerRepository? { get }
 }

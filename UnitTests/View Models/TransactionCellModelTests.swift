@@ -64,6 +64,7 @@ class TransactionCellModelTests: XCTestCase {
                                   date: Date(),
                                   amount: "10",
                                   currency: .USD,
+                                  categoryColor: .red,
                                   convertedAmount: convertedAmount,
                                   convertedCurrency: Currency(rawValue: convertedCurrency ?? ""),
                                   currencyLayerRepository: currencyLayerRepositoryMock,

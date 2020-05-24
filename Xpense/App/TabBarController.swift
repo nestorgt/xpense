@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Main tab controller of the App.
 class TabBarController: UITabBarController {
     
     override func viewDidLoad() {
@@ -16,6 +17,8 @@ class TabBarController: UITabBarController {
         setupTabBar()
     }
 }
+
+// MARK: - Private
 
 private extension TabBarController {
     
@@ -28,7 +31,7 @@ private extension TabBarController {
         )
         viewControllers = [transactionsVC, categoriesVC]
         
-        // Load initial categories
+        // Load initial data
         _ = DI.categoryService.fetchCategories()
         _ = DI.transactionService.fetchTransactions()
     }

@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Shows all transactions. Can be grouped by Month/Day
 class TransactionsViewController: UITableViewController {
 
     private let segmentedController = UISegmentedControl(items: TransactionsViewModel.ViewMode.allCases.map { $0.title })

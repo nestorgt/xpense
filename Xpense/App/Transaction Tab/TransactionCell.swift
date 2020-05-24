@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Respresents a view in the transaction table
 final class TransactionCell: UITableViewCell {
     
     @IBOutlet weak var topLeftLabel: UILabel!
@@ -29,14 +30,16 @@ final class TransactionCell: UITableViewCell {
         topLeftLabel.text = model.title
         bottomLeftLabel.text = model.date.string()
         topRightLabel.text = "\(model.currency.rawValue) \(model.amount)"
-        if model.convertedCurrency != model.currency,
-            let convertedCurrency = model.convertedCurrency,
-            let convertedAmount = model.convertedAmount {
-            bottomRightLabel.text = "\(convertedCurrency.rawValue) \(convertedAmount)"
-        }
-        model.fetchConversionIfNeeded { [weak self] (amount, currency) in
-            DispatchQueue.main.async {
-                self?.bottomRightLabel.text = "\(currency ?? "") \(amount ?? "")"
+        if model.convertedCurrency != model.currency {
+            if let convertedCurrency = model.convertedCurrency,
+                let convertedAmount = model.convertedAmount {
+                    bottomRightLabel.text = "\(convertedCurrency.rawValue) \(convertedAmount)"
+            } else {
+                model.fetchConversionIfNeeded { [weak self] (amount, currency) in
+                    DispatchQueue.main.async {
+                        self?.bottomRightLabel.text = "\(currency ?? "") \(amount ?? "")"
+                    }
+                }
             }
         }
         topLeftLabel.textColor = model.categoryColor

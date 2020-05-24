@@ -21,7 +21,7 @@ public class CategoryDB: NSManagedObject {
         return Category(id: id, name: name, hex: hex)
     }
     
-    /// Find if there is already ony in the DB, if not, create a new entry
+    /// Find if there is already any in the DB, if not, create a new entry
     @discardableResult
     static func createFromCategory(_ category: Category, context: NSManagedObjectContext) -> CategoryDB {
         let request = CategoryDB.fetchRequest() as NSFetchRequest<CategoryDB>

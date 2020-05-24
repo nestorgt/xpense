@@ -9,6 +9,8 @@
 import UIKit
 
 extension UIView {
+    
+    /// Moves the curreny view to simulate an error.
     func shake() {
         let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
         animation.timingFunction = CAMediaTimingFunction(name: .linear)
