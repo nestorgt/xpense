@@ -4,16 +4,19 @@
         <attribute name="hex" attributeType="String"/>
         <attribute name="id" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
+        <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TransactionDB" inverseName="category" inverseEntity="TransactionDB"/>
     </entity>
-    <entity name="TransactionDB" representedClassName="TransactionDB" syncable="YES" codeGenerationType="class">
+    <entity name="TransactionDB" representedClassName=".TransactionDB" syncable="YES">
         <attribute name="amount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="currency" attributeType="String"/>
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" attributeType="String"/>
-        <attribute name="nzdAmount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="nzdAmount" optional="YES" attributeType="String"/>
         <attribute name="title" attributeType="String"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CategoryDB" inverseName="transactions" inverseEntity="CategoryDB"/>
     </entity>
     <elements>
-        <element name="CategoryDB" positionX="-54" positionY="-9" width="128" height="88"/>
-        <element name="TransactionDB" positionX="-36" positionY="36" width="128" height="118"/>
+        <element name="CategoryDB" positionX="238.5" positionY="79.5" width="128" height="103"/>
+        <element name="TransactionDB" positionX="-36" positionY="36" width="128" height="148"/>
     </elements>
 </model>

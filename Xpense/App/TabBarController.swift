@@ -20,14 +20,16 @@ class TabBarController: UITabBarController {
 private extension TabBarController {
     
     func setupViewControllers() {
-        let transactionsVC = TransactionListingViewController()
-        transactionsVC.title = NSLocalizedString("transaction-tab-title")
-
-        let categoriesVC = CategoryViewController(viewModel:
-            CategoryViewModel(categoryService: DI.categoryService)
+        let transactionsVC = TransactionsViewController(viewModel:
+            TransactionsViewModel()
         )
-
+        let categoriesVC = CategoryViewController(viewModel:
+            CategoryViewModel()
+        )
         viewControllers = [transactionsVC, categoriesVC]
+        
+        // Load initial categories
+        _ = DI.categoryService.fetchCategories()
     }
     
     func setupTabBar() {

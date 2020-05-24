@@ -22,14 +22,14 @@ final class CategoryService: CategoryServiceProtocol {
     
     private let databaseService: DatabaseServiceProtocol
     
-    init(databaseService: DatabaseServiceProtocol) {
+    init(databaseService: DatabaseServiceProtocol = DI.databaseService) {
         self.databaseService = databaseService
     }
     
     func fetchCategories() -> [Category] {
         var categories = databaseService.fetchCategories()
         if categories.isEmpty {
-            Log.message("Creating and storing default categories...", level: .info, category: .category)
+            Log.message("Creating and storing default categories...", level: .info, type: .category)
             defaultCategories().forEach { [weak self] in
                 self?.databaseService.saveCategory($0)
             }

@@ -33,21 +33,21 @@ final class APIService: APIServiceProtocol {
     // MARK: Requests
     
     func perform(urlRequest: URLRequest, completion: @escaping (Result<Data, APIError>) -> Void) {
-        Log.message(urlRequest.url?.absoluteString, level: .info, category: .network)
+        Log.message(urlRequest.url?.absoluteString, level: .info, type: .network)
         urlSession.dataTask(with: urlRequest) { (data, response, error) in
             if let error = error {
-                Log.message("Request error: \(error.localizedDescription)", level: .error, category: .network)
+                Log.message("Request error: \(error.localizedDescription)", level: .error, type: .network)
                 completion(.failure(.generic(message: error.localizedDescription)))
             } else if let response = response as? HTTPURLResponse, let data = data {
                 if let apiError = APIError.error(from: response.statusCode) {
-                    Log.message("Request response code: \(response.statusCode)", level: .error, category: .network)
+                    Log.message("Request response code: \(response.statusCode)", level: .error, type: .network)
                     completion(.failure(apiError))
                 } else {
-                    Log.message("Request OK: \(response.statusCode)", level: .info, category: .network)
+                    Log.message("Request OK: \(response.statusCode)", level: .info, type: .network)
                     completion(.success(data))
                 }
             } else {
-                Log.message("Request Error: no response/data", level: .error, category: .network)
+                Log.message("Request Error: no response/data", level: .error, type: .network)
                 completion(.failure(.generic(message: "no response/data")))
             }
         }.resume()

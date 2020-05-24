@@ -20,5 +20,23 @@ extension CategoryDB {
     @NSManaged public var id: String?
     @NSManaged public var name: String?
     @NSManaged public var hex: String?
+    @NSManaged public var transactions: NSSet?
+    
+}
 
+// MARK: Generated accessors for transactions
+extension CategoryDB {
+    
+    @objc(addTransactionsObject:)
+    @NSManaged public func addToTransactions(_ value: TransactionDB)
+    
+    @objc(removeTransactionsObject:)
+    @NSManaged public func removeFromTransactions(_ value: TransactionDB)
+    
+    @objc(addTransactions:)
+    @NSManaged public func addToTransactions(_ values: NSSet)
+    
+    @objc(removeTransactions:)
+    @NSManaged public func removeFromTransactions(_ values: NSSet)
+    
 }

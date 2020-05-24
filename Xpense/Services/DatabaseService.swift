@@ -17,6 +17,9 @@ protocol DatabaseServiceProtocol {
     /// Create or update a category
     func saveCategory(_ category: Category)
     
+    /// Create or update a transaction
+    func saveTransaction(_ transaction: Transaction)
+    
     /// Save all pending objects into the DB
     func saveAll()
 }
@@ -31,9 +34,9 @@ final class DatabaseService: DatabaseServiceProtocol {
         do {
             let categoriesDB: [CategoryDB] = try context.fetch(CategoryDB.fetchRequest())
             categories = categoriesDB.compactMap { $0.toCategory() }
-            Log.message("Found \(categoriesDB.count) categories", level: .info, category: .database)
+            Log.message("Found \(categoriesDB.count) categories", level: .info, type: .database)
         } catch let error as NSError {
-            Log.message("Could not fetch categories: \(error) - \(error.userInfo)", level: .error, category: .database)
+            Log.message("Could not fetch categories: \(error) - \(error.userInfo)", level: .error, type: .database)
         }
         return categories
     }
@@ -42,8 +45,12 @@ final class DatabaseService: DatabaseServiceProtocol {
         updateCategoryDB(from: category)
     }
     
+    func saveTransaction(_ transaction: Transaction) {
+        updateTransactionDB(from: transaction)
+    }
+    
     func saveAll() {
-        Log.message("Saving context", level: .info, category: .database)
+        Log.message("Saving context", level: .info, type: .database)
         saveContext()
     }
     
@@ -55,7 +62,7 @@ final class DatabaseService: DatabaseServiceProtocol {
         let container = NSPersistentContainer(name: "Xpense")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
-                Log.message("Can't load persistent stores", level: .error, category: .database)
+                Log.message("Can't load persistent stores", level: .error, type: .database)
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
@@ -70,7 +77,7 @@ final class DatabaseService: DatabaseServiceProtocol {
             do {
                 try context.save()
             } catch let error as NSError {
-                Log.message("Can't save into Database", level: .error, category: .database)
+                Log.message("Can't save into Database", level: .error, type: .database)
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         }
@@ -88,16 +95,39 @@ private extension DatabaseService {
         do {
             categoriesDB = try context.fetch(request)
         } catch let error as NSError {
-            Log.message("Can't find into Database: \(error), \(error.userInfo)", level: .error, category: .database)
+            Log.message("Can't find into Database: \(error), \(error.userInfo)", level: .error, type: .database)
         }
         
         if let categoryDB = categoriesDB.first {
-            Log.message("Updating DB entry \(category.id)", level: .info, category: .database)
+            Log.message("Updating DB entry \(category.id)", level: .info, type: .database)
             categoryDB.name = category.name
             categoryDB.hex = category.hex
         } else {
-            Log.message("Creating DB entry \(category.id)", level: .info, category: .database)
-            CategoryDB.createFromCategory(category, insertInto: context)
+            Log.message("Creating DB entry \(category.id)", level: .info, type: .database)
+            CategoryDB.createFromCategory(category, context: context)
         }
+    }
+    
+    func updateTransactionDB(from transaction: Transaction) {
+        let request = TransactionDB.fetchRequest() as NSFetchRequest<TransactionDB>
+        request.predicate = NSPredicate(format: "id == %@", transaction.id)
+        var transactionDB = [TransactionDB]()
+        do {
+            transactionDB = try context.fetch(request)
+        } catch let error as NSError {
+            Log.message("Can't find into Database: \(error), \(error.userInfo)", level: .error, type: .database)
+        }
+        
+        if let transactionDB = transactionDB.first {
+            Log.message("Updating DB entry \(transaction.id)", level: .info, type: .database)
+            transactionDB.title = transaction.title
+            transactionDB.amount = transaction.amount
+            transactionDB.currency = transaction.currency.rawValue
+            transactionDB.category = CategoryDB.createFromCategory(transaction.category, context: context)
+        } else {
+            Log.message("Creating DB entry \(transaction.id)", level: .info, type: .database)
+            TransactionDB.createFromTransaction(transaction, context: context)
+        }
+        saveContext()
     }
 }

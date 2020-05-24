@@ -29,7 +29,7 @@ final class CurrencyLayerRepository: CurrencyLayerRepositoryProtocol {
     
     private let apiService: APIServiceProtocol
     
-    init(apiService: APIServiceProtocol) {
+    init(apiService: APIServiceProtocol = DI.apiService) {
         self.apiService = apiService
     }
     

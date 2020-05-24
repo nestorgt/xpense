@@ -13,15 +13,15 @@ import os.log
 /// and can be viewed and filtered in the Console app.
 final class Log {
     static var enabledLevels: Set<Log.Level> = [.error, .info, .debug]
-    static var enabledCategories: Set<Log.Kind> = [.decoder, .network, .category, .database, .other]
+    static var enabledTypes: Set<Log.Kind> = [.decoder, .network, .category, .database, .transaction, .other]
     
-    static func message(_ message: Any?, level: Log.Level, category: Log.Kind = .other) {
+    static func message(_ message: Any?, level: Log.Level, type: Log.Kind = .other) {
         guard enabledLevels.contains(level),
-            enabledCategories.contains(category)
+            enabledTypes.contains(type)
             else { return }
         os_log("%@",
                log: OSLog(subsystem: Bundle.main.bundleIdentifier ?? "",
-                          category: category.description),
+                          category: type.description),
                type: level.oslogType,
                "\(message ?? "")")
     }

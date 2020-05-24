@@ -16,7 +16,7 @@ final class CategoryViewModel {
     
     var screentTitle: String { NSLocalizedString("category-tab-title") }
     
-    init(categoryService: CategoryServiceProtocol) {
+    init(categoryService: CategoryServiceProtocol = DI.categoryService) {
         self.categoryService = categoryService
     }
     
@@ -69,15 +69,15 @@ final class CategoryViewModel {
     /// Returns true if the new value was stored.
     func didEnter(nameString: String?, hexString: String?, forIndex index: Int) -> Bool {
         Log.message("User entry: \(nameString ?? "<nil>") - \(hexString ?? "<nil>")",
-            level: .info, category: .category)
+            level: .info, type: .category)
         
         let nameCheck = isNameValid(nameString: nameString) && name(for: index) != nameString
         Log.message("User entry name: \(nameString ?? "<nil>") -> \(nameCheck ? "👍" : "👎")",
-            level: .info, category: .category)
+            level: .info, type: .category)
         
         let colorCheck = isHexValid(hexString: hexString) && hexColor(for: index) != hexString?.uppercased()
         Log.message("User entry color: \(hexString ?? "<nil>") -> \(colorCheck ? "👍" : "👎")",
-            level: .info, category: .category)
+            level: .info, type: .category)
         
         let shouldStoreOnDB = nameCheck || colorCheck
         if var updateCategory = category(for: index), shouldStoreOnDB {
@@ -89,7 +89,6 @@ final class CategoryViewModel {
             }
             categoryService.save(category: updateCategory)
         }
-        
         return shouldStoreOnDB
     }
 }

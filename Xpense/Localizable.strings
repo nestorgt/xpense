@@ -9,6 +9,13 @@
 "transaction-tab-title" = "Transactions";
 "category-tab-title" = "Categories";
 
+"add-transaction-title" = "Add Transaction";
+"add-transaction-title-placeholder" = "Title";
+"add-transaction-amount-placeholder" = "10";
+"add-transaction-currency-placeholder" = "Choose a currency";
+"add-transaction-category-placeholder" = "Choose a cateogry";
+"add-transaction-date-placeholder" = "Choose a date";
+
 "category-section-title" = "Categories";
 
 "api-error-generic" = "Something went wrong 😱";

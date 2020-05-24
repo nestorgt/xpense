@@ -26,12 +26,12 @@ class CategoryViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Self.categoryCellIdentifier)
-        navigationController?.visibleViewController?.title = viewModel.screentTitle
+        setupTableView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        setupNavigationBar()
         refresh()
     }
     
@@ -77,10 +77,19 @@ class CategoryViewController: UITableViewController {
 
 // MARK: - Private
 
-extension CategoryViewController {
+private extension CategoryViewController {
     
-    private func refresh() {
+    func refresh() {
         viewModel.refresh()
         tableView.reloadData()
+    }
+    
+    func setupTableView() {
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Self.categoryCellIdentifier)
+    }
+    
+    func setupNavigationBar() {
+        navigationController?.visibleViewController?.title = viewModel.screentTitle
+        navigationController?.visibleViewController?.navigationItem.rightBarButtonItem = nil
     }
 }

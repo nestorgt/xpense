@@ -15,16 +15,18 @@ public class CategoryDB: NSManagedObject {
 
     func toCategory() -> Category? {
         guard let id = id, let name = name, let hex = hex else {
-            Log.message("Could not create Category from CategoryDB", level: .error, category: .database)
+            Log.message("Could not create Category from CategoryDB", level: .error, type: .database)
             return nil
         }
         return Category(id: id, name: name, hex: hex)
     }
     
-    static func createFromCategory(_ category: Category, insertInto context: NSManagedObjectContext) {
-        let categoryDB = CategoryDB(entity: CategoryDB.entity(), insertInto: context)
+    @discardableResult
+    static func createFromCategory(_ category: Category, context: NSManagedObjectContext) -> CategoryDB {
+        let categoryDB = CategoryDB(context: context)
         categoryDB.id = category.id
         categoryDB.name = category.name
         categoryDB.hex = category.hex
+        return categoryDB
     }
 }
